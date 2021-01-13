@@ -1,0 +1,211 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-family: "Gilroy-Bold";
+
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'Gilroy-Bold';
+    src: url('../fonts/Gilroy-Bold.ttf') format('truetype'), url('../fonts/Gilroy-Black.ttf') format('truetype');
+}
+
+
+
+/* CUSTOM ELEMENTS */
+a {
+    transition: .3s;
+    color: #3c3c3c;
+}
+
+    a:hover {
+        transition: .3s;
+        color: #ff213f !important;
+    }
+
+input[type=text] {
+    padding: 0 10px 0 10px;
+    height: 30px;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 1px solid #c3c3c3;
+    background-color: white;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+input[type=submit] {
+    padding: 0 10px 0 10px;
+    height: 50px;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 1px solid #3c3c3c;
+    background-color: #c3c3c3;
+    font-size: 16px;
+    border-radius: 5px;
+    color: #3c3c3c;
+    transition: .3s;
+}
+
+    input[type=submit].success:hover {
+	    padding: 0 10px 0 10px;
+	    height: 50px;
+	    position: relative;
+	    left: 0;
+	    outline: none;
+	    border: 1px solid #0c5b15;
+	    background-color: #0cdf55;
+	    font-size: 16px;
+	    border-radius: 5px;
+	    color: #23602d;
+	    transition: .3s;
+    }
+
+    input[type=submit].theme:hover {
+        border: 1px solid #400909;
+        background-color: #fcb045;
+        color: #400909;
+        transition: .3s;
+    }
+
+textarea {
+    padding: 0 10px 0 10px;
+    height: 100%;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 1px solid #c3c3c3;
+    background-color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    margin:20px 0 20px 0;
+    min-width:180px;
+}
+
+
+
+/* FIELDSET */
+fieldset {
+    border:none;
+    border-top: 3px solid #3c3c3c;
+    border-radius:5px;   
+    color: #3c3c3c;
+}
+
+fieldset legend{
+    font-size:24px;
+    padding:20px;
+    margin:20px;
+}
+
+
+
+/* SECTION */
+section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.main-section {
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+}
+
+    .main-section.banner {
+        background-image: url('../images/main-photo.jpg');
+        width: 100%;
+        height: 100vh;
+        z-index: 1;
+        box-shadow: 0 8px 6px -6px #c3c3c3;
+    }
+    .main-section.aboutx {
+        background-image: url();
+        width: 100%;
+        height: 100vh;
+        z-index: 1;
+    }
+    .main-section.contactsx {
+        background-image: url();
+        width: 100%;
+        height: 100vh;  
+        z-index: 1;
+    }
+
+
+/* CONTATTI */
+.contacts .contacts-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+    .contacts .contacts-body .contact-description {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .contacts .contacts-body .contact-description span {
+        margin-bottom:20px;
+    }
+
+    .contacts .contacts-body .contact-description span i{
+        margin-right:10px;
+    }
+
+.contacts .get-in-touch {
+    margin-top:30px;
+    height: 180px;
+    width: 100%;
+    box-shadow: #c3c3c3 0px 0px 60px;
+    border-radius: 10px;
+
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+}
+
+    .contacts .get-in-touch .personal {
+        display:flex;
+        flex-direction:column;
+        justify-content:space-around;
+
+        margin: 20px 10px 20px 20px;
+    }
+
+    .contacts .get-in-touch .message {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        width: 200px;
+        margin: 20px 10px 20px 10px;
+    }
+
+    .contacts .get-in-touch .send {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        min-width: 80px;
+        margin: 20px 20px 20px 10px;
+    }
+
+
+
+/* TESTS */
+.test {
+    width: 100%;
+    height: 300px;
+    background: rgb(0,0,0);
+    background: linear-gradient(183deg, #030303 50%, rgba(252,69,88,1) 80%, rgba(252,176,69,1) 100%);
+    transform: rotate(-4deg);
+    z-index: 0;
+    transform-origin: 0 100%;
+    box-shadow: 0 10px 6px -6px #c3c3c3;
+}

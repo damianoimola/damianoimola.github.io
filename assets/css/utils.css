@@ -1,0 +1,92 @@
+﻿/* GENERAL */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* COLORS */
+.color-black{
+    color:#000000;
+}
+
+.color-white{
+    color:#ffffff;
+}
+
+.color-gray{
+    color:#3c3c3c;
+}
+
+.color-red {
+    /* https://colorhunt.co/palette/163991 */
+}
+
+.color-purple {
+    /* https://colorhunt.co/palette/163991 */
+}
+
+
+
+/* RESET DEFAULT STYLING*/
+a.no-style {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+ul.no-style {
+    list-style-type: none;
+}
+
+
+
+
+/* DISPLAY FLEX */
+.display-flex {
+    display: flex;
+}
+
+    /* FLEX ITEMS DIRECTION*/
+    .display-flex.flex-column {
+        flex-direction: column;
+    }
+
+    .display-flex.flex-column-reverse {
+        flex-direction: column-reverse;
+    }
+    
+    .display-flex.flex-row {
+        flex-direction: row;
+    }
+
+    .display-flex.flex-row-reverse {
+        flex-direction: row-reverse;
+    }
+
+    /* FLEX ITEMS DISLOCATION*/
+    .display-flex.flex-content-center {
+        justify-content: center;
+    }
+
+    .display-flex.flex-content-end {
+        justify-content: end;
+    }
+
+    .display-flex.flex-content-start {
+        justify-content: start;
+    }
+
+    .display-flex.flex-content-space-around {
+        justify-content: space-around;
+    }
+
+    .display-flex.flex-content-space-between {
+        justify-content: space-between;
+    }
+
+    .display-flex.flex-content-space-evenly {
+        justify-content: space-evenly;
+    }

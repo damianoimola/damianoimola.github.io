@@ -1,0 +1,129 @@
+﻿.navbar {
+    margin: 0;
+    padding: 0;
+    min-height: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    transition: .3s;
+
+    position: fixed;
+    top: 0;
+    width:100vw;
+    max-width:100%;
+    z-index: 998;
+}
+
+    .navbar.shadow {
+        box-shadow: 0 8px 6px -6px #c3c3c3;
+    }
+
+    .navbar.transparent {
+        background-color: transparent;
+        color: #ffffff;
+    }
+
+    .navbar.solid {
+        background-color: #ffffff;
+        color: #3c3c3c;
+    }
+
+
+/* SCHERMI MAGGIORI DI X PIXELS */
+@media (min-width: 991px) {
+
+    .navbar .logo {
+        font-size: 100%;
+    }
+
+    .navbar .desktop-menu {
+        width: 300px;
+    }
+
+        .navbar .desktop-menu ul {
+            display: flex;
+            justify-content: space-between;
+        }
+
+            .navbar .desktop-menu ul li {
+                /* Per il reset dell'animazione */
+                transition: .3s;
+                color: inherit;
+            }
+
+                .navbar .desktop-menu ul li:hover {
+                    transition: .3s;
+                    color: #ff213f
+                }
+
+
+    .navbar .mobile-menu {
+        display: none;
+    }
+
+    .overlay-menu {
+        display: none;
+    }
+}
+
+/* SCHERMI MINORI DI X PIXELS */
+@media (max-width: 991px) {
+
+    .navbar .logo {
+        font-size: 200%;
+    }
+
+    .navbar .desktop-menu {
+        display: none;
+    }
+
+    .navbar .mobile-menu {
+        color: inherit;
+    }
+
+        .navbar .mobile-menu .hamburger {
+            cursor: pointer;
+        }
+
+    .overlay-menu {
+        width: 100vw;
+        max-width: 100%;
+        height: 100vh;
+        background: linear-gradient( 45deg, #00e5ff 0%, #fc4558 100%);
+        background-color: #3c3c3c;
+        color: #ffffff;
+        transition: visibility .3s, opacity 0.3s cubic-bezier(.48,.47,0,1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+
+        .overlay-menu.collapsed {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .overlay-menu.expanded {
+            overflow: hidden;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .overlay-menu .times {
+            cursor: pointer;
+        }
+
+        .overlay-menu .menu-body {
+            display:flex;
+            flex-direction:column;
+            justify-content:space-evenly;
+
+            height:70vh;
+
+            font-size:200%;
+            text-align:center;
+        }
+
+}

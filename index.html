@@ -1,0 +1,199 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title>EasyClick</title>
+
+    <!-- STYLES -->
+    <!-- custom -->
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/utils.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+
+    <!-- SCRIPTS -->
+    <!-- custom -->
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/af5c18ea7b.js" crossorigin="anonymous"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<form>
+
+    <!-- HEADER -->
+    <nav class="navbar transparent">
+        <div class="display-flex flex-content-space-around">
+            <div class="logo">
+                <strong>LOGO</strong>
+            </div>
+
+            <div class="desktop-menu">
+                <ul class="no-style">
+                    <li><a class="no-style" href="#home">Home</a></li>
+                    <li><a class="no-style" href="#about">About</a></li>
+                    <li><a class="no-style" href="#career-interest">Career</a></li>
+                    <li><a class="no-style" href="#contacts">Contacts</a></li>
+                </ul>
+            </div>
+
+            <div class="mobile-menu">
+                <span class="hamburger"><i class="fas fa-bars fa-2x"></i></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="overlay-menu collapsed">
+        <div class="menu-body centered">
+            <span class="logo">LOGO</span>
+            <div class="display-flex flex-column flex-content-space-around">
+                <span><a id="overlay-home" class="no-style" href="#home">Home</a></span>
+                <span><a id="overlay-about" class="no-style" href="#about">About</a></span>
+                <span><a id="overlay-contacts" class="no-style" href="#contacts">Contacts</a></span>
+            </div>
+            <span class="times"><i class="fas fa-times"></i></span>
+        </div>
+    </div>
+    <!-- HEADER -->
+
+
+
+
+    <div class="container">
+
+        <section class="main-section banner">
+            <p class="centered">Progettata da <strong>voi</strong>, per <strong>voi</strong>.</p>
+        </section>
+
+        <section id="home" class="main-section home">
+            <!--<div class="test"> </div>-->
+            <fieldset class="centered">
+                <legend>Home</legend>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
+                    Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </fieldset>
+        </section>
+
+        <section id="about" class="main-section about">
+            <fieldset class="centered">
+                <legend>About</legend>
+
+                <p> Siamo un team italiano, che si occupa di vendita di prodotti tech e non di fornitori terzi.</p>
+                <p> Facciamo si che le vendite dei nostri clienti aumentino in modo esponenziale così da trarne vantaggio entrambi. </p>
+            </fieldset>
+        </section>
+
+        <section id="career-interest" class="main-section about">
+            <fieldset class="centered">
+                <legend>Career goals and Interests</legend>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
+                    Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </fieldset>
+        </section>
+
+        <section id="contacts" class="main-section contacts">
+            <fieldset class="centered">
+                <legend>Contacts</legend>
+
+                <div class="contacts-body">
+                    <div class="contact-description">
+                        <span>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</span>
+                        <span><i class="fas fa-mobile"></i><a class="no-style" href="tel:+393313241748">+39 331 324 1748</a></span>
+                        <span><i class="fas fa-envelope"></i><a class="no-style"  href="mailto:damiano.imola@outlook.it">damiano.imola@outlook.it</a></span>
+                        <span><i class="fas fa-map-marker-alt"></i> Via Prova 123, Roma (RM), 00100</span>
+                    </div>
+                </div>
+
+                <!-- GET IN TOUCH -->
+                <div class="get-in-touch">
+                    <div class="personal">
+                        <input id="GIT_Name" type="text" placeholder="Il tuo nome">
+                        <input id="GIT_Mail" type="text" placeholder="Il tuo nome">
+                    </div>
+                    <div class="message">
+                        <textarea id="GIT_Body" type="text" placeholder="Scrivi un messaggio..." rows="3"></textarea>
+                    </div>
+                    <div class="send">
+                        <input id="GIT_Send" CLASS="theme" type="submit" value="Invia">
+                    </div>
+                </div>
+            </fieldset>
+        </section>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+    <footer class="color-white">
+        <!-- UPPER FOOTER -->
+        <div class="upper-footer">
+            <div class="display-flex flex-row flex-content-space-around">
+                <div class="display-flex flex-column flex-content-start">
+                    <span class="footer-section-title">Sub-menu</span>
+                    <div class="footer-section-body">
+                        <span><a class="no-style">Tesla, LTD</a></span>
+                        <span><a class="no-style">Amazon.com, Inc.</a></span>
+                        <span><a class="no-style">NeuralLink</a></span>
+                    </div>
+                </div>
+
+                <div class="display-flex flex-column flex-content-start">
+                    <span class="footer-section-title">News & Info</span>
+                    <div class="footer-section-body">
+                        <span><a class="no-style">Iscriviti alla nostra Newsletter</a></span>
+                    </div>
+                </div>
+
+                <div class="display-flex flex-column flex-content-start">
+                    <span class="footer-section-title">Other Sites</span>
+                    <div class="footer-section-body">
+                        <span><a class="no-style">Prova 1</a></span>
+                        <span><a class="no-style">Prova 2</a></span>
+                        <span><a class="no-style">Prova 3</a></span>
+                        <span><a class="no-style">Prova 4</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="upper-footer-bottom-line">
+                <div class="footer-company-section">
+                    <span>Damiano Imola S.R.L.S</span>
+                </div>
+
+                <div class="footer-social-section">
+                    <span><a href="https://github.com/damianoimola" class="no-style"><i class="fab fa-github fa-2x"></i></a></span>
+                    <span><a href="https://www.instagram.com/damiano_imola" class="no-style"><i class="fab fa-instagram fa-2x"></i></a></span>
+                    <span><a href="https://www.linkedin.com/in/damiano-imola-044174163/" class="no-style"><i class="fab fa-linkedin-in fa-2x"></i></a></span>
+                    <!--<span><a href="https://twitter.com" class="no-style"><i class="fab fa-twitter fa-2x"></i></a></span>-->
+                    <span><a href="https://www.facebook.com/damiano.imola" class="no-style"><i class="fab fa-facebook-f fa-2x"></i></a></span>
+                </div>
+            </div>
+        </div>
+
+
+        <hr class="color-white" style="margin:20px;" />
+
+        <!-- LOWER FOOTER -->
+        <div class="lower-footer">
+            <div class="footer-copiright">
+                <span>© DAMIANO IMOLA COPYRIGHT 2020</span>
+            </div>
+            <div class="footer-terms-and-conditions">
+                <span>TERMS AND CONDITIONS</span>
+                <span>PRIVACY POLICY</span>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER -->
+
+</form>
+
+<script src="assets/js/header.js"></script>
+
+</body>
+</html>
