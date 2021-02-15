@@ -5,10 +5,10 @@
     --c-red: #FE5F55; /*orange-red-crayola*/
 
     --fs-cap-lg: 30px;
-    --fs-cap-sm: 25px;
+    --fs-cap-sm: 35px;
 
     --fs-tit-lg: 50px;
-    --fs-tit-sm: 40px;
+    --fs-tit-sm: 60px;
 }
 
 @font-face {
@@ -140,7 +140,7 @@
     }
 
     section .centered {
-        margin: 0 20% 0 20%;
+        margin: 0 10% 0 10%;
         height: 100%;
         display: flex;
         flex-direction: column;
