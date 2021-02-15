@@ -1,0 +1,243 @@
+:root{
+    --c-gray: #495867; /*coral-black*/
+    --c-lgray: #E2E4EC; /*ghost-white 1*/
+    --c-white: #F7F7FF; /*ghost-white 2*/
+    --c-red: #FE5F55; /*orange-red-crayola*/
+
+    --fs-cap-lg: 30px;
+    --fs-cap-sm: 20px;
+
+    --fs-tit-lg: 50px;
+    --fs-tit-sm: 30px;
+}
+
+@font-face {
+    font-family: 'UbuntuMono';
+    src: url('../fonts/UbuntuMono-Regular.ttf') format('truetype'), url('../fonts/UbuntuMono-Bold.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "UbuntuMono";
+
+    scroll-behavior: smooth;
+}
+
+.underlined{
+    box-shadow: inset 0 -20px 0 0  var(--c-red);
+    width: fit-content;
+    line-height: inherit;
+}
+
+.highlight{
+    color: var(--c-red);
+}
+
+
+
+/* SCHERMI MAGGIORI DI X PIXELS */
+@media (min-width: 991px) {
+
+    section {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+    }
+
+    section:nth-child(odd) {
+        background-color: var(--c-gray);
+        color: var(--c-lgray)
+    }
+
+    section:nth-child(even) {
+        background-color: var(--c-lgray);
+        color: var(--c-gray);
+    }
+
+    section .centered {
+        margin: 0 20% 0 20%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    section .section-title {
+        font-size: var(--fs-tit-lg) !important;
+    }
+
+
+    section.main-section .heading {
+        font-size: 120px;
+        line-height: 100px;
+    }
+
+    section.main-section .typewriter-wrapper {
+        font-size: 70px
+    }
+
+    section.main-section .cursor {
+        font-size: 70px;
+        color: #e2e4ec;
+        animation: blink .7s infinite;
+    }
+
+    section.main-section .caption {
+        margin: 50px 0 20px 0;
+        font-size: var(--fs-tit-lg);
+    }
+
+
+    section.about span {
+        font-size: var(--fs-cap-lg);
+    }
+
+
+    section.work span {
+        font-size: var(--fs-cap-lg);
+    }
+
+    section.work .date {
+        color: var(--c-red);
+    }
+
+
+    section.certifications span {
+        font-size: var(--fs-cap-lg);
+    }
+
+    section.certifications .name {
+        color: var(--c-red);
+    }
+
+
+    section.contacts span {
+        font-size: var(--fs-cap-lg);
+    }
+
+}
+
+
+
+/* SCHERMI MINORI DI X PIXELS */
+@media (max-width: 991px) {
+
+    section {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+    }
+
+    section:nth-child(odd) {
+        background-color: var(--c-gray);
+        color: var(--c-lgray)
+    }
+
+    section:nth-child(even) {
+        background-color: var(--c-lgray);
+        color: var(--c-gray);
+    }
+
+    section .centered {
+        margin: 0 20% 0 20%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    section .section-title {
+        font-size: var(--fs-tit-sm) !important;
+    }
+
+
+    section.main-section .heading {
+        font-size: 100px;
+        line-height: 100px;
+    }
+
+    section.main-section .typewriter-wrapper {
+        font-size: 50px
+    }
+
+    section.main-section .cursor {
+        font-size: 50px;
+        color: #e2e4ec;
+        animation: blink .7s infinite;
+    }
+
+    section.main-section .caption {
+        margin: 50px 0 20px 0;
+        font-size: var(--fs-tit-sm);
+    }
+
+
+    section.about span {
+        font-size: var(--fs-cap-sm);
+    }
+
+
+    section.work span {
+        font-size: var(--fs-cap-sm);
+    }
+
+    section.work .date {
+        color: var(--c-red);
+    }
+
+
+    section.certifications span {
+        font-size: var(--fs-cap-sm);
+    }
+
+    section.certifications .name {
+        color: var(--c-red);
+    }
+
+
+    section.contacts span {
+        font-size: var(--fs-cap-sm);
+    }
+
+}
+
+
+
+/* CUSTOM TAGS*/
+a {
+    transition: .3s;
+    color: var(--c-red);
+}
+a:link,
+a:visited{
+    text-decoration: none;
+}
+a:hover,
+a:active{
+    text-decoration: none;
+}
+
+
+i{
+    width: 15px;
+    height: 15px;
+    margin-right: 20px;
+}
+
+
+
+
+/* ANIMATION KEYFRAMES */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+
+
