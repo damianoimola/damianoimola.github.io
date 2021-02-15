@@ -5,10 +5,10 @@
     --c-red: #FE5F55; /*orange-red-crayola*/
 
     --fs-cap-lg: 30px;
-    --fs-cap-sm: 20px;
+    --fs-cap-sm: 25px;
 
     --fs-tit-lg: 50px;
-    --fs-tit-sm: 30px;
+    --fs-tit-sm: 40px;
 }
 
 @font-face {
@@ -154,15 +154,15 @@
 
     section.main-section .heading {
         font-size: 100px;
-        line-height: 100px;
+        line-height: 110px;
     }
 
     section.main-section .typewriter-wrapper {
-        font-size: 50px
+        font-size: 60px
     }
 
     section.main-section .cursor {
-        font-size: 50px;
+        font-size: 60px;
         color: #e2e4ec;
         animation: blink .7s infinite;
     }
