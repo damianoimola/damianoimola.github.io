@@ -43,7 +43,7 @@ TxtType.prototype.tick = function() {
 };
 
 // loading the texttyper
-window.onload = function() {
+function loadTypeWriting () {
     let elements = document.getElementsByClassName('typewrite');
     for (let i=0; i<elements.length; i++) {
         let sentence = elements[i].getAttribute('data-type');

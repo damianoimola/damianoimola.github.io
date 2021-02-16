@@ -1,3 +1,10 @@
+window.onload = function (){
+    loadTypeWriting()
+    main()
+}
+
+
+
 function computeAge(bornDate) {
     let diff = Date.now() - bornDate.getTime();
     let age_dt = new Date(diff); // full date-time
