@@ -36,24 +36,26 @@
 
 
 
+
+section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+section:nth-child(odd) {
+    background-color: var(--c-gray);
+    color: var(--c-lgray)
+}
+
+section:nth-child(even) {
+    background-color: var(--c-lgray);
+    color: var(--c-gray);
+}
+
+
 /* SCHERMI MAGGIORI DI X PIXELS */
 @media (min-width: 991px) {
-
-    section {
-        width: 100%;
-        height: 100vh;
-        position: relative;
-    }
-
-    section:nth-child(odd) {
-        background-color: var(--c-gray);
-        color: var(--c-lgray)
-    }
-
-    section:nth-child(even) {
-        background-color: var(--c-lgray);
-        color: var(--c-gray);
-    }
 
     section .centered {
         margin: 0 20% 0 20%;
@@ -116,28 +118,50 @@
         font-size: var(--fs-cap-lg);
     }
 
+    section.contacts i{
+        width: 15px;
+        height: 15px;
+        margin-right: 25px;
+    }
+
+
+    /* SIDE MENU SECTION*/
+    .side-menu {
+        position:fixed;
+        right: 0;
+        top:35%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-around;
+        height: 30%;
+        width: 50px;
+        background-color: var(--c-white);
+        z-index: 2;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        box-shadow: 0 0 80px -20px var(--c-gray);
+    }
+
+        .side-menu > .side-menu:not(span){
+            opacity: .7;
+        }
+
+        .side-menu span{
+            display: flex;
+            justify-content: center;
+        }
+
+        .side-menu .i{
+            margin: 0 !important;
+        }
+
 }
 
 
 
 /* SCHERMI MINORI DI X PIXELS */
 @media (max-width: 991px) {
-
-    section {
-        width: 100%;
-        height: 100vh;
-        position: relative;
-    }
-
-    section:nth-child(odd) {
-        background-color: var(--c-gray);
-        color: var(--c-lgray)
-    }
-
-    section:nth-child(even) {
-        background-color: var(--c-lgray);
-        color: var(--c-gray);
-    }
 
     section .centered {
         margin: 0 10% 0 10%;
@@ -200,6 +224,12 @@
         font-size: var(--fs-cap-sm);
     }
 
+    section.contacts i{
+        width: 15px;
+        height: 15px;
+        margin-right: 25px;
+    }
+
 }
 
 
@@ -218,12 +248,6 @@ a:active{
     text-decoration: none;
 }
 
-
-i{
-    width: 15px;
-    height: 15px;
-    margin-right: 20px;
-}
 
 
 

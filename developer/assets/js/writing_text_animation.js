@@ -52,4 +52,4 @@ function loadTypeWriting () {
             new TxtType(elements[i], JSON.parse(sentence), period);
         }
     }
-};
+}
