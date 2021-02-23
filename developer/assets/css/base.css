@@ -230,6 +230,38 @@ section:nth-child(even) {
         margin-right: 25px;
     }
 
+    /* SIDE MENU SECTION*/
+    .side-menu {
+        position:fixed;
+        right: 0;
+        top:35%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-around;
+        height: 30%;
+        width: 70px;
+        background-color: var(--c-white);
+        z-index: 2;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        box-shadow: 0 0 80px -20px var(--c-gray);
+        font-size: 180%;
+    }
+
+    .side-menu > .side-menu:not(span){
+        opacity: .7;
+    }
+
+    .side-menu span{
+        display: flex;
+        justify-content: center;
+    }
+
+    .side-menu .i{
+        margin: 0 !important;
+    }
+
 }
 
 
