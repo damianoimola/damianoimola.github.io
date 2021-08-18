@@ -98,9 +98,11 @@ section:nth-child(even) {
 
     section.work span {
         font-size: var(--fs-cap-lg);
+        text-align: justify;
     }
 
-    section.work .date {
+    section.work .date,
+    section.work .role{
         color: var(--c-red);
     }
 
@@ -203,10 +205,12 @@ section:nth-child(even) {
 
 
     section.work span {
-        font-size: var(--fs-cap-sm);
+        font-size: var(--fs-cap-lg);
+        text-align: justify;
     }
 
-    section.work .date {
+    section.work .date,
+    section.work .role {
         color: var(--c-red);
     }
 
