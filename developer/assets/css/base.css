@@ -1,8 +1,8 @@
 :root{
-    --c-gray: #495867; /*coral-black*/
-    --c-lgray: #E2E4EC; /*ghost-white 1*/
-    --c-white: #F7F7FF; /*ghost-white 2*/
-    --c-red: #FE5F55; /*orange-red-crayola*/
+    /*--c-gray: #495867; !*coral-black*!*/
+    /*--c-lgray: #E2E4EC; !*ghost-white 1*!*/
+    /*--c-white: #F7F7FF; !*ghost-white 2*!*/
+    /*--c-red: #FE5F55; !*orange-red-crayola*!*/
 
     --fs-cap-lg: 30px;
     --fs-cap-sm: 35px;
@@ -34,8 +34,6 @@
 .highlight{
     color: var(--c-red);
 }
-
-
 
 
 section {
