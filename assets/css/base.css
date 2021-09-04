@@ -117,12 +117,51 @@
 
 
 
-    /*WELCOME SECTION*/
+    /*EXPERIENCE SECTION*/
     section.experience-view {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         background-color: var(--c-white);
+    }
+
+    section.experience-view .section-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 5vw;
+    }
+
+    section.experience-view .section-content .section-title{
+        font-size: 100px;
+    }
+
+    section.experience-view .section-content .slider-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: end;
+        font-size: 130%;
+    }
+
+    section.experience-view .section-content .experience{
+        margin-bottom: 20px;
+    }
+
+    section.experience-view .section-content .experience .description{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    section.experience-view .section-content .experience .description .job-title{
+        margin-right: 20px;
+        font-weight: 500;
+    }
+
+    section.experience-view .section-content .experience .description .date{
+        color: var(--c-red);
     }
 
 

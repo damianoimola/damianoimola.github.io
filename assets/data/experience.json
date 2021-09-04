@@ -1,0 +1,18 @@
+{
+   "Experience" : [
+     {
+       "name" : "Axenta",
+       "title" : "Full-Stack .NET Developer",
+       "start" : "09/2018",
+       "end" : "09/2020",
+       "caption" : "Company that operates"
+     },
+     {
+       "name" : "BetterTogether",
+       "title" : "Back-End Software Developer",
+       "start" : "09/2019",
+       "end" : "09/2020",
+       "caption" : "Company that operates"
+     }
+   ]
+}
