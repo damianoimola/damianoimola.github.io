@@ -20,6 +20,7 @@
     <!--  SCRIPTS  -->
     <!--  custom  -->
     <script src="assets/js/experience-slider.js" type="application/javascript"></script>
+    <script src="assets/js/awards-displayer.js" type="application/javascript"></script>
     <!--  Google Analytics  -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSPPEVDZ7B"></script>
@@ -116,11 +117,78 @@
     <section class="award-view">
         <div class="section-content">
             <span class="section-title">Awards</span>
+            <div class="awards-group">
+
+                <div class="award spec">
+                    <span class="type">Specializations</span>
+                    <table>
+                        <tbody id="table-body-spec"></tbody>
+                    </table>
+                </div>
+
+                <div class="award cert">
+                    <span class="type">Certifications</span>
+                    <table>
+                        <tbody id="table-body-cert"></tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div class="first-separator"></div>
+    </section>
+
+
+
+
+    <section class="contacts-view">
+        <div class="section-content">
+            <span class="section-title">Contacts</span>
+
+            <div class="contact-group">
+                <div class="contact">
+                    <div class="contact-icon">
+                        <i class='bx bxl-github'></i>
+                    </div>
+                    <div class="contact-text">
+                        <a class="no-style" href="https://github.com/damianoimola">GitHub Profile</a>
+                    </div>
+                </div>
+                <div class="contact">
+                    <div class="contact-icon">
+                        <i class='bx bxl-linkedin-square'></i>
+                    </div>
+                    <div class="contact-text">
+                        <a class="no-style" href="https://www.linkedin.com/in/damiano-imola-044174163/">LinkedIn Profile</a>
+                    </div>
+                </div>
+                <div class="contact">
+                    <div class="contact-icon">
+                        <i class='bx bxs-paper-plane' ></i>
+                    </div>
+                    <div class="contact-text">
+                        <a class="no-style" href="mailto:damianoimola@outlook.it">Mail me</a>
+                    </div>
+                </div>
+                <div class="contact">
+                    <div class="contact-icon">
+                        <i class='bx bxs-user-detail' ></i>
+                    </div>
+                    <div class="contact-text">
+                        <span>LaTeX</span>
+                        <br />
+                        <a class="no-style" href="#">IT</a>
+                        <a class="no-style" href="assets/files/Damiano%20Imola%20-%20Resume.pdf">EN</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <script>
-        loadData();
+        loadExperienceData();
+        loadAwardData();
     </script>
 </body>
 </html>

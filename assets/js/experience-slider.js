@@ -3,7 +3,7 @@
 // import data from "assets/data/experience.json"
 
 
-function loadData() {
+function loadExperienceData() {
     var obj;
     fetch("assets/data/experience.json")
         .then(response => {

@@ -1,0 +1,153 @@
+{
+  "specializations" : [
+    {
+      "org": "deeplearning.ai",
+      "name": "Deep Learning Specialization",
+      "date": "09/2020",
+      "link": "https://www.coursera.org/account/accomplishments/specialization/certificate/LZU6D57MPK6S",
+      "front" : true
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "TensorFlow Developer",
+      "date": "09/2020",
+      "link": "https://www.coursera.org/account/accomplishments/specialization/certificate/RJ44N22F7MN5",
+      "front" : true
+    }
+  ],
+  "certifications" : [
+    {
+      "org": "Stanford University",
+      "name": "Machine Learning",
+      "date": "07/2020",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/AEVT864RS9NU",
+      "front" : true
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "AI For Everyone",
+      "date": "09/2020",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/JEGN4DE8PPXX",
+      "front" : true
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "Neural Networks and Deep Learning",
+      "date": "09/2020",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/2YQMTN9XFGV8",
+      "front" : false
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization",
+      "date": "09/2020",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/5HG2255DXTD4",
+      "front" : false
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "Structuring Machine Learning projects",
+      "date": "09/2020",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/Y2JBYMRYDPES",
+      "front" : false
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "Convolutional Neural Networks",
+      "date": "09/2020",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/7TRWQ6KS36Z4",
+      "front" : false
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "Sequence Models",
+      "date": "09/2020",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/YSKZ748FF7L6",
+      "front" : false
+    },
+    {
+      "org": "Cisco",
+      "name": "Cybersecurity Essentials",
+      "date": "05/2018",
+      "link": "#",
+      "front" : true
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning",
+      "date": "09/2020",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/Z9AQQECZT7KL",
+      "front" : false
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "Convolutional Neural Networks in TensorFlow",
+      "date": "09/2020",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/D92NJYS6AT8B",
+      "front" : false
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "Natural Language Processing in TensorFlow",
+      "date": "09/2020",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/3NJYKCYT3N58",
+      "front" : false
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "Sequences, Time Series and Prediction",
+      "date": "09/2020",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/R3XWXDUBTPLY",
+      "front" : false
+    },
+    {
+      "org": "IBM",
+      "name": "Artificial Intelligence Concepts",
+      "date": "08/2020",
+      "link": "#",
+      "front" : true
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "Custom Models, Layers, and Loss Functions with TensorFlow",
+      "date": "07/2021",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/6TB8C3VAX5RT",
+      "front" : false
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "Custom and Distributed Training with TensorFlow",
+      "date": "08/2021",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/L5AHCHQRJSQQ",
+      "front" : false
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "Advanced Computer Vision with TensorFlow",
+      "date": "08/2021",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/RC5ZBLG52ETV",
+      "front" : false
+    },
+    {
+      "org": "Udemy",
+      "name": "Data Science e Machine Learning con Python",
+      "date": "05/2020",
+      "link": "https://www.udemy.com/certificate/UC-4cdfb2ca-b63e-4ecc-963d-113adc6dc7e0",
+      "front" : true
+    },
+    {
+      "org": "Udemy",
+      "name": "Corso Base MongoDB",
+      "date": "04/2020",
+      "link": "https://www.udemy.com/certificate/UC-486d59ac-a573-4b8e-ab16-b88a70bb0fb2",
+      "front" : false
+    },
+    {
+      "org": "Udemy",
+      "name": "Programmazione Web con Microsoft Dot Net C#",
+      "date": "09/2018",
+      "link": "https://www.udemy.com/certificate/UC-9HFPBWGX/",
+      "front" : false
+    }
+  ]
+}
