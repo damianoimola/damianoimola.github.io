@@ -89,6 +89,10 @@ a.no-style:visited {
         border-bottom-left-radius: 20px;
         font-weight: 800;
         font-size: 20px;
+        background-color: var(--c-white);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     section.welcome-view .section-content{
@@ -290,7 +294,7 @@ a.no-style:visited {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        background-color: var(--c-white);
+        background-color: var(--c-black);
         color: var(--c-white);
     }
 
@@ -298,14 +302,13 @@ a.no-style:visited {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background-color: var(--c-black);
         margin: 5vw;
         padding: 100px 50px 100px 50px;
         border-radius: 7px;
         /*box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,*/
         /*            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;*/
 
-        box-shadow:rgb(38 57 77) 0px 0px 60px 0px;
+        /*box-shadow:rgb(38 57 77) 0px 0px 60px 0px;*/
     }
 
     section.contacts-view .section-content .section-title{
@@ -318,6 +321,7 @@ a.no-style:visited {
         flex-direction: row;
         justify-content: space-around;
         flex-wrap: wrap;
+        margin-top: 30px;
     }
 
     section.contacts-view .section-content .contact-group .contact{
@@ -354,6 +358,48 @@ a.no-style:visited {
         /*text-align: end;*/
         font-size: 200px;
         transition: .3s;
+    }
+
+    section.contacts-view .separator {
+        position: absolute;
+        width: 110vw;
+        min-height: 200px;
+        height: 15vw;
+        top: -9vw;
+        left: -50px;
+        background-color: var(--c-white);
+        transform: rotate(
+                356deg
+        );
+        transform-origin: top right;
+    }
+
+
+
+
+    section.others-view {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: var(--c-black);
+        color: var(--c-white);
+    }
+
+    section.others-view .section-content{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    section.others-view .section-content img{
+        border-radius: 20px;
+    }
+
+    section.others-view .footer{
+        position: absolute;
+        bottom: 100px;
+        width: 100%;
+        text-align: center;
     }
 
 
