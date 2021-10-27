@@ -236,7 +236,7 @@ a.no-style:visited {
     }
 
     section.education-view .section-content .education-group .education .logo{
-        width: 100px;
+        /*width: 100px;*/
         height: 100px;
         margin-left: auto;
         margin-right: auto;
