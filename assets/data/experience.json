@@ -5,14 +5,15 @@
        "title" : "Full-Stack .NET Developer",
        "start" : "09/2018",
        "end" : "09/2020",
-       "caption" : "Company that operates"
+       "caption" : " "
      },
      {
        "name" : "BetterTogether",
        "title" : "Back-End Software Developer",
        "start" : "09/2019",
        "end" : "09/2020",
-       "caption" : "Company that operates"
+       "caption": " ",
+       "caption_x" : "Is an Insur-Tech startup. I was in charge of web and mobile application back-end development; of the interconnection between company and public/private/custom systems and of the management of the company databases."
      }
    ]
 }
