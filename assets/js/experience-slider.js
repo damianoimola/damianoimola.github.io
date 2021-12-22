@@ -38,7 +38,13 @@ function loadExperiences(data){
 
         let jobTitle = document.createElement("span");
         jobTitle.className = "job-title";
-        jobTitle.appendChild(document.createTextNode(x.title));
+
+        let job = document.createElement("span");
+        job.className = "job";
+        job.innerText = x.title;
+        jobTitle.appendChild(job);
+        jobTitle.appendChild(document.createTextNode(" in "));
+        jobTitle.appendChild(document.createTextNode(x.name));
 
         let date = document.createElement("span");
         date.className = "date";

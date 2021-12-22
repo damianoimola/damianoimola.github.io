@@ -178,6 +178,11 @@ a.no-style:visited {
         font-weight: 500;
     }
 
+    section.experience-view .section-content .experience .description .job{
+        margin-right: 10px;
+        font-weight: 700;
+    }
+
     section.experience-view .section-content .experience .description .date{
         color: var(--c-red);
     }
@@ -381,6 +386,7 @@ a.no-style:visited {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        flex-wrap: wrap;
         background-color: var(--c-black);
         color: var(--c-white);
     }
@@ -388,6 +394,7 @@ a.no-style:visited {
     section.others-view .section-content{
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-around;
     }
 
@@ -397,7 +404,7 @@ a.no-style:visited {
 
     section.others-view .footer{
         position: absolute;
-        bottom: 100px;
+        bottom: 70px;
         width: 100%;
         text-align: center;
     }
