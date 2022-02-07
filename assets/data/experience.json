@@ -5,7 +5,8 @@
        "title" : "Full-Stack .NET Developer",
        "start" : "09/2018",
        "end" : "09/2020",
-       "caption" : " "
+       "caption" : " ",
+       "caption_x" : "○ Agile Full-Stack development of Web applications\n○ Trigger’s and report’s development with Windows Services\n○ Application’s and Database management, Workflow manager, Software maintenance\n○ Database and software workflow manager"
      },
      {
        "name" : "BetterTogether",
@@ -13,15 +14,15 @@
        "start" : "09/2019",
        "end" : "09/2020",
        "caption": " ",
-       "caption_x" : "Is an Insur-Tech startup. I was in charge of web and mobile application back-end development; of the interconnection between company and public/private/custom systems and of the management of the company databases."
+       "caption_x" : "○ Back-End development of Web and Mobile cross-platform applications\n○ Develop link and connections with custom, public and third party Web API\n○ Application’s and Database management, Workflow manager, Software maintenance\n○ Analysis of the software progresses with customer"
      },
      {
        "name" : "Capgemini",
-       "title" : "Software Engineer, Machine Learning trainee",
+       "title" : "Software Engineer, Machine Learning intern",
        "start" : "11/2021",
        "end" : "ongoing",
        "caption": " ",
-       "caption_x" : "Is an Insur-Tech startup. I was in charge of web and mobile application back-end development; of the interconnection between company and public/private/custom systems and of the management of the company databases."
+       "caption_x" : "○ Data engineering with user, company and wearable devices data\n○ Development of machine learning models to be implemented within mobile and web applications\n○ Development of mobile and web applications\n○ Pattern recognition and pipeline orchestration for data collection and processing"
      }
    ]
 }

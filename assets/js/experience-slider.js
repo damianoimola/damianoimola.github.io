@@ -32,6 +32,7 @@ function loadExperiences(data){
         description.className = "description";
 
         let caption = document.createElement("div");
+        //let captionString = x.caption_x.replace('\n', "</br>");
         caption.className = "caption";
         caption.appendChild(document.createTextNode(x.caption));
 
