@@ -74,3 +74,9 @@ function loadExperiences(data){
         parent.appendChild(experience);
     });
 }
+
+
+
+function createSlider() {
+
+}
