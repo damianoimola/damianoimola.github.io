@@ -49,40 +49,15 @@
         </div>
     </section>
 
-
-
     <section id="experience" class="experience-view">
         <div class="section-content">
             <span class="section-title">Experiences</span>
             <div class="slider-wrapper">
-                <div class="experience-list">
-                    <ul>
-                        <li>Capgemini</li>
-                        <li>Better Together</li>
-                        <li>Axenta</li>
-                    </ul>
-                </div>
-                <div id="experience-description" class="experience-description">
-                    <div class="header">
-                        <div class="company-name">CAPGEMINI</div>
-                        <span class="job-title">PROVA PRO</span>
-                    </div>
-
-                    <span class="description">
-                        <br>
-                        ● Back-End development of cross/multi-platform applications. <br><br>
-                        ● Modernized link and connections with custom, public and third-party Web API.<br><br>
-                        ● Managed relational databases, applications, and software workflow; maintained software.<br><br>
-                        ● Improved and reinforced suggestion algorithms with lower time complexity.<br><br>
-                        ● Devised log handler Daemon at Windows and Database level, automating the company reporting
-                    </span>
-                </div>
+                <div id="experience-list-wrapper" class="experience-list-wrapper"></div>
+                <div id="experience-description-wrapper" class="experience-description-wrapper"></div>
             </div>
         </div>
     </section>
-
-
-
 
     <section class="education-view">
         <div class="banner"></div>
@@ -113,13 +88,19 @@
                     <div class="thesis">T.B.D.</div>
                 </div>
 
+                <div class="education">
+                    <img class="logo" src="" alt="" />
+                    <div class="description">
+                        <div class="name">N/A</div>
+                        <div class="type">University</div>
+                    </div>
+                    <div class="title">Master Degree in N/A</div>
+                    <div class="mark">N/A</div>
+                    <div class="thesis">N/A</div>
+                </div>
             </div>
         </div>
     </section>
-
-
-
-
 
     <section class="award-view">
         <div class="section-content">
@@ -144,9 +125,6 @@
         </div>
         <div class="first-separator"></div>
     </section>
-
-
-
 
     <section id="contacts" class="contacts-view">
         <div class="separator"></div>
@@ -194,7 +172,6 @@
         </div>
     </section>
 
-
     <section class="others-view">
         <div class="section-content">
             <div>
@@ -218,9 +195,9 @@
 
     <script>
         // alert("WebSite Available only for wide screens");
-        // loadExperienceData();
-        // loadAwardData();
-        createSlider();
+        loadExperienceData();
+        loadAwardData();
+        //createSlider();
     </script>
 </body>
 </html>

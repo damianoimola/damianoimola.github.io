@@ -195,10 +195,11 @@ a.no-style:visited {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        height: 50vh;
         max-height: 60vh;
     }
 
-    section.experience-view .section-content .slider-wrapper .experience-list{
+    section.experience-view .section-content .slider-wrapper .experience-list-wrapper{
         background-color: red;
         width: fit-content;
         padding: 30px;
@@ -207,7 +208,7 @@ a.no-style:visited {
         border-radius: 5px;
     }
 
-    section.experience-view .section-content .slider-wrapper .experience-description{
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper{
         background-color: green;
         width: fit-content;
         padding: 30px;
@@ -217,18 +218,48 @@ a.no-style:visited {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        overflow: hidden;
     }
 
 
-    section.experience-view .section-content .slider-wrapper .experience-description .header{
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .experience-description-header{
+        display: none;
+    }
+
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .experience-description-header.visible{
         background-color: yellow;
         display: flex;
         flex-direction: row;
-        justify-content: start;
+        justify-content: space-between;
         padding: 10px 0 10px 0;
     }
 
-    section.experience-view .section-content .slider-wrapper .experience-description .header .job-title{
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .experience-description-header .leading {
+        background-color: orange;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 0 10px 0;
+    }
+
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .experience-description-header .trailing {
+        background-color: orange;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 0 10px 0;
+    }
+
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .experience-description{
+        display: none;
+    }
+
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .experience-description.visible{
+        display: block;
+        overflow-y: scroll;
+    }
+
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .header .job-title{
         display: flex;
         flex-direction: column;
         justify-content: center;

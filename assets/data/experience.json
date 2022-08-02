@@ -1,27 +1,31 @@
 {
    "Experience" : [
      {
+       "id": "0",
        "name" : "Axenta",
        "title" : "Full-Stack Software Developer",
        "start" : "09/2018",
        "end" : "09/2020",
-       "caption" : " "
+       "caption": " ",
+       "caption_x" : "● Created and standardized cross-platform applications with Full-Stack .NET development; Agile methodology.<br>● Developed Windows Daemon (Windows Services) to automate triggers and reports and decreased software <br>production process complexity.<br>● Orchestrated all software workflow and administered relational databases and applications.<br>● Led teams of small dimensions (3 to 6 people).<br>● Overhauled, customized, and managed Database and Software deployment pipeline."
      },
      {
+       "id": "1",
        "name" : "BetterTogether",
        "title" : "Back-End Software Developer",
        "start" : "09/2019",
        "end" : "09/2020",
        "caption": " ",
-       "caption_x" : "Is an Insur-Tech startup. I was in charge of web and mobile application back-end development; of the interconnection between company and public/private/custom systems and of the management of the company databases."
+       "caption_x" : "● Back-End development of cross/multi-platform applications.<br>● Modernized link and connections with custom, public and third-party Web API.<br>● Managed relational databases, applications, and software workflow; maintained software.<br>● Improved and reinforced suggestion algorithms with lower time complexity.<br>● Devised log handler Daemon at Windows and Database level, automating the company reporting"
      },
      {
+       "id": "2",
        "name" : "Capgemini",
        "title" : "Software Engineer, Machine Learning trainee",
        "start" : "11/2021",
        "end" : "ongoing",
        "caption": " ",
-       "caption_x" : "Is an Insur-Tech startup. I was in charge of web and mobile application back-end development; of the interconnection between company and public/private/custom systems and of the management of the company databases."
+       "caption_x" : "● Engineered data coming from three different sources: user, company, and wearable devices.<br>● Produced machine learning model to prevent employee workplace burnout.<br>● Created a cross-platform Redux application to host all Machine Learning algorithms and allow users to <br>monitor their stress levels.<br>● Pattern recognition and pipeline orchestration for data collection and processing. "
      }
    ]
 }
