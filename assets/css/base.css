@@ -191,9 +191,10 @@ a.no-style:visited {
 
     section.experience-view .section-content .slider-wrapper{
         max-width: 80vw;
-        background-color: blue;
+        /*background-color: blue;*/
         display: flex;
-        flex-direction: row;
+        /*flex-direction: row;*/
+        flex-direction: column;
         justify-content: space-around;
         height: 50vh;
         max-height: 60vh;
@@ -217,7 +218,7 @@ a.no-style:visited {
         max-width: 50vw;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-between;
         overflow: hidden;
     }
 
@@ -359,6 +360,11 @@ a.no-style:visited {
     section.award-view .section-content .awards-group .award.cert{
         margin-top: 50px;
         margin-right: 50px;
+    }
+
+    section.award-view .section-content .awards-group .award.scholar{
+        margin-bottom: 50px;
+        margin-right: 150px;
     }
 
     section.award-view .section-content .awards-group .award .type{
