@@ -47,8 +47,13 @@ function createSlider(data) {
                         </div>`
             slides.push(str);
 
-            let list_elem = `<span onclick="setSlider(${id})">${Number(id)+1}</span>`;
-            list_elements.push(list_elem);
+            let literal = document.createElement("span")
+            literal.innerHTML = String(Number(id)+1);
+            literal.style = "z-index: 99; cursor: pointer;";
+            literal.onclick = function(){ startSlider(id); }
+            // literal.setAttribute("onclick", `setSlider(${id})`);
+            // let list_elem = `<span style="width:10px" onclick="setSlider(${id})">${Number(id)+1}</span>`;
+            list_elements.push(literal);
         });
 
         startSlider(0);
@@ -57,9 +62,7 @@ function createSlider(data) {
         let items_container = document.createElement("div");
         items_container.className = "items-container";
         list_elements.forEach(item =>{
-            let literal = document.createElement("span")
-            literal.innerHTML = item;
-            items_container.appendChild(literal);
+            items_container.appendChild(item);
         })
         slider.after(items_container)
     }
