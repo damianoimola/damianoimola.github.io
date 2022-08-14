@@ -21,7 +21,7 @@
      {
        "id": "2",
        "name" : "Capgemini",
-       "title" : "Software Engineer, Machine Learning trainee",
+       "title" : "Software Engineer, Machine Learning intern",
        "start" : "11/2021",
        "end" : "03/2022",
        "caption" : "● Engineered data coming from three different sources: user, company, and wearable devices.<br>● Produced machine learning model to prevent employee workplace burnout.<br>● Created a cross-platform Redux application to host all Machine Learning algorithms and allow users to <br>monitor their stress levels.<br>● Pattern recognition and pipeline orchestration for data collection and processing. ",
