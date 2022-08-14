@@ -1,28 +1,31 @@
 {
    "Experience" : [
      {
+       "id": "0",
        "name" : "Axenta",
-       "title" : "Full-Stack .NET Developer",
+       "title" : "Full-Stack Software Developer",
        "start" : "09/2018",
        "end" : "09/2020",
-       "caption" : " ",
-       "caption_x" : "○ Agile Full-Stack development of Web applications\n○ Trigger’s and report’s development with Windows Services\n○ Application’s and Database management, Workflow manager, Software maintenance\n○ Database and software workflow manager"
+       "caption" : "● Created and standardized cross-platform applications with Full-Stack .NET development; Agile methodology.<br>● Developed Windows Daemon (Windows Services) to automate triggers and reports and decreased software <br>production process complexity.<br>● Orchestrated all software workflow and administered relational databases and applications.<br>● Led teams of small dimensions (3 to 6 people).<br>● Overhauled, customized, and managed Database and Software deployment pipeline.",
+       "visible" : false
      },
      {
+       "id": "1",
        "name" : "BetterTogether",
        "title" : "Back-End Software Developer",
        "start" : "09/2019",
        "end" : "09/2020",
-       "caption": " ",
-       "caption_x" : "○ Back-End development of Web and Mobile cross-platform applications\n○ Develop link and connections with custom, public and third party Web API\n○ Application’s and Database management, Workflow manager, Software maintenance\n○ Analysis of the software progresses with customer"
+       "caption" : "● Back-End development of cross/multi-platform applications.<br>● Modernized link and connections with custom, public and third-party Web API.<br>● Managed relational databases, applications, and software workflow; maintained software.<br>● Improved and reinforced suggestion algorithms with lower time complexity.<br>● Devised log handler Daemon at Windows and Database level, automating the company reporting",
+       "visible" : false
      },
      {
+       "id": "2",
        "name" : "Capgemini",
        "title" : "Software Engineer, Machine Learning intern",
        "start" : "11/2021",
-       "end" : "ongoing",
-       "caption": " ",
-       "caption_x" : "○ Data engineering with user, company and wearable devices data\n○ Development of machine learning models to be implemented within mobile and web applications\n○ Development of mobile and web applications\n○ Pattern recognition and pipeline orchestration for data collection and processing"
+       "end" : "03/2022",
+       "caption" : "● Engineered data coming from three different sources: user, company, and wearable devices.<br>● Produced machine learning model to prevent employee workplace burnout.<br>● Created a cross-platform Redux application to host all Machine Learning algorithms and allow users to <br>monitor their stress levels.<br>● Pattern recognition and pipeline orchestration for data collection and processing. ",
+       "visible" : true
      }
    ]
 }

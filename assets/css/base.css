@@ -154,41 +154,119 @@ a.no-style:visited {
         font-size: 100px;
     }
 
+    /*section.experience-view .section-content .slider-wrapper{*/
+    /*    display: flex;*/
+    /*    flex-direction: column;*/
+    /*    justify-content: space-between;*/
+    /*    text-align: end;*/
+    /*    font-size: 130%;*/
+    /*}*/
+
+    /*section.experience-view .section-content .experience{*/
+    /*    margin-bottom: 20px;*/
+    /*}*/
+
+    /*section.experience-view .section-content .experience .description{*/
+    /*    display: flex;*/
+    /*    flex-direction: row;*/
+    /*    justify-content: flex-end;*/
+    /*    flex-wrap: wrap;*/
+    /*}*/
+
+    /*section.experience-view .section-content .experience .description .job-title{*/
+    /*    margin-right: 20px;*/
+    /*    font-weight: 500;*/
+    /*}*/
+
+    /*section.experience-view .section-content .experience .description .job{*/
+    /*    margin-right: 10px;*/
+    /*    font-weight: 700;*/
+    /*}*/
+
+    /*section.experience-view .section-content .experience .description .date{*/
+    /*    color: var(--c-red);*/
+    /*}*/
+
+
+
     section.experience-view .section-content .slider-wrapper{
+        max-width: 80vw;
+        /*background-color: blue;*/
+        display: flex;
+        /*flex-direction: row;*/
+        flex-direction: column;
+        justify-content: space-around;
+        height: 50vh;
+        max-height: 60vh;
+    }
+
+    section.experience-view .section-content .slider-wrapper .experience-list-wrapper{
+        background-color: red;
+        width: fit-content;
+        padding: 30px;
+        margin: 20px;
+        flex-shrink: 2;
+        border-radius: 5px;
+    }
+
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper{
+        background-color: green;
+        width: fit-content;
+        padding: 30px;
+        margin:20px;
+        flex-shrink: 1;
+        max-width: 50vw;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        text-align: end;
-        font-size: 130%;
+        overflow: hidden;
     }
 
-    section.experience-view .section-content .experience{
-        margin-bottom: 20px;
+
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .experience-description-header{
+        display: none;
     }
 
-    section.experience-view .section-content .experience .description{
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .experience-description-header.visible{
+        background-color: yellow;
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
-        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 0 10px 0;
     }
 
-    section.experience-view .section-content .experience .description .job-title{
-        margin-right: 20px;
-        font-weight: 500;
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .experience-description-header .leading {
+        background-color: orange;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 0 10px 0;
     }
 
-    section.experience-view .section-content .experience .description .job{
-        margin-right: 10px;
-        font-weight: 700;
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .experience-description-header .trailing {
+        background-color: orange;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 0 10px 0;
     }
 
-    section.experience-view .section-content .experience .description .date{
-        color: var(--c-red);
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .experience-description{
+        display: none;
     }
 
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .experience-description.visible{
+        display: block;
+        overflow-y: scroll;
+    }
 
-
+    section.experience-view .section-content .slider-wrapper .experience-description-wrapper .header .job-title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 2;
+        margin-left: 20px;
+    }
 
 
 
@@ -282,6 +360,11 @@ a.no-style:visited {
     section.award-view .section-content .awards-group .award.cert{
         margin-top: 50px;
         margin-right: 50px;
+    }
+
+    section.award-view .section-content .awards-group .award.scholar{
+        margin-bottom: 50px;
+        margin-right: 150px;
     }
 
     section.award-view .section-content .awards-group .award .type{

@@ -1,8 +1,3 @@
-
-// Loading JSon data
-// import data from "assets/data/experience.json"
-
-
 function loadExperienceData() {
     var obj;
     fetch("assets/data/experience.json")
@@ -13,65 +8,89 @@ function loadExperienceData() {
             }
             return response.json();
         })
-        .then(data => loadExperiences(data));
+        .then(data => createSlider(data));
 }
 
-function loadExperiences(data){
+
+
+
+let slides = [];
+let list_elements = []
+let intervalId;
+function createSlider(data) {
     if(data === "" || data === undefined){
         throw new TypeError("JSON not loaded!");
     }
 
-    // let obj = JSON.parse(data);
-    let parent = document.getElementById("slider-wrapper");
+    let slider = document.getElementById("experience-slider");
+    if (slider) {
+        data.Experience.forEach(item => {
+            let id = item.id;
+            let name = item.name;
+            let title = item.title;
+            let start = item.start;
+            let end = item.end;
+            let caption = item.caption;
+            let visible = item.visible;
 
-    data.Experience.forEach(x => {
-        let experience = document.createElement("div");
-        experience.className = "experience";
+            //let str = "<h2>" + title + "<small>" + name + "</small></h2>"
+            let str = `<div class="wrapper">
+                            <h2 class="header">${title}</h2>
+                            <div class="main">
+                                <div class="info">
+                                    <small>${name}</small>
+                                    <small>${start}</small>
+                                    <small>${end}</small>
+                                </div>
+                                <div class="description">${caption}</div>
+                            </div>
+                        </div>`
+            slides.push(str);
 
-        let description = document.createElement("div");
-        description.className = "description";
+            let list_elem = `<span onclick="setSlider(${id})">${Number(id)+1}</span>`;
+            list_elements.push(list_elem);
+        });
 
-        let caption = document.createElement("div");
-        //let captionString = x.caption_x.replace('\n', "</br>");
-        caption.className = "caption";
-        caption.appendChild(document.createTextNode(x.caption));
+        startSlider(0);
 
+        // creating item list below slider
+        let items_container = document.createElement("div");
+        items_container.className = "items-container";
+        list_elements.forEach(item =>{
+            let literal = document.createElement("span")
+            literal.innerHTML = item;
+            items_container.appendChild(literal);
+        })
+        slider.after(items_container)
+    }
+}
 
-        let jobTitle = document.createElement("span");
-        jobTitle.className = "job-title";
+function startSlider(index){
+    let slider_element = document.getElementById("experience-slider");
 
-        let job = document.createElement("span");
-        job.className = "job";
-        job.innerText = x.title;
-        jobTitle.appendChild(job);
-        jobTitle.appendChild(document.createTextNode(" in "));
-        jobTitle.appendChild(document.createTextNode(x.name));
+    let i = index;
+    const slider = () => {
+        slider_element.innerHTML = slides[i];
+        slider_element.classList.add('fade-in');
 
-        let date = document.createElement("span");
-        date.className = "date";
+        (i < slides.length - 1) ? i++ : i = 0;
+    };
 
-        let dateStart = document.createElement("span");
-        dateStart.appendChild(document.createTextNode(x.start));
-        dateStart.className = "date-start";
+    if (intervalId !== undefined)
+        clearTimeout(intervalId);
 
-        let dateEnd = document.createElement("span");
-        dateEnd.appendChild(document.createTextNode(x.end));
-        dateEnd.className = "date-end";
+    slider(); // Start slider immediately
+    intervalId = setInterval(slider, 10000); // Slide every 10 seconds
 
-        let icon = document.createElement("i");
-        icon.className = "bx bx-chevrons-right";
+    /* restarting css animation*/
+    if (intervalId !== undefined) {
+        slider_element.classList.remove('fade-in');
+        void slider_element.offsetWidth;
+        slider_element.classList.add('fade-in');
+    }
 
+}
 
-        date.appendChild(dateStart);
-        date.appendChild(icon);
-        date.appendChild(dateEnd);
-
-        description.appendChild(jobTitle);
-        description.appendChild(date);
-
-        experience.appendChild(description);
-        experience.appendChild(caption);
-
-        parent.appendChild(experience);
-    });
+function setSlider(index){
+    startSlider(index);
 }

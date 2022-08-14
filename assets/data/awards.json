@@ -149,5 +149,12 @@
       "link": "https://www.udemy.com/certificate/UC-9HFPBWGX/",
       "front" : false
     }
+  ],
+  "scholarships" : [
+    {
+      "org": "Capgemini",
+      "name": "Scholarship for an experimental Master’s degree thesis topic as a Bachelor’s student",
+      "front" : true
+    }
   ]
 }
