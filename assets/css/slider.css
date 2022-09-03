@@ -1,99 +1,214 @@
-#experience-slider{
-    perspective: 1000px;
-}
 
-#experience-slider .wrapper {
-    max-width: 60vw;
-    width: 60vw;
-    height: 20vw;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-#experience-slider .header {
-    font-weight: 600;
-    font-size: 32px;
-    text-align: center;
-}
-
-#experience-slider small {
-    display: block;
-    color: #7f8c8d;
-    font-weight: 300;
-    font-size: 28px;
-}
-
-#experience-slider .main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#experience-slider .main .info{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 10px;
-}
-
-#experience-slider {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    align-items: center;
-}
-
-#experience-slider.fade-in {
-    animation: fade 10s infinite;
-}
-
-.items-container{
-    font-size: 20px;
-    color: var(--c-red);
-    margin: auto;
-    width: 20vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-
-@keyframes fade_old {
-    0% {
-        opacity: 0;
-        transform: rotate3d(2, 2, 0, 60deg);
+@media only screen and (max-width: 768px) {
+    #experience-slider {
+        perspective: 1000px;
     }
-    20% {
-        opacity: 1;
-        transform: rotate3d(0, 0, 0, 24deg);
+
+    #experience-slider .wrapper {
+        max-width: 60vw;
+        width: 60vw;
+        height: 20vw;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
-    80% {
-        opacity: 1;
-        transform: rotate3d(0, 0, 0, 24deg);
+
+    #experience-slider .header {
+        font-weight: 600;
+        font-size: 50px;
+        text-align: center;
     }
-    100% {
-        opacity: 0;
-        transform: rotate3d(-2, -2, 0, 60deg);
+
+    #experience-slider small {
+        display: block;
+        color: #7f8c8d;
+        font-weight: 300;
+        font-size: 28px;
+    }
+
+    #experience-slider .main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        font-size: 30px;
+    }
+
+    #experience-slider .main .info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        padding: 10px;
+    }
+
+    #experience-slider {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+    }
+
+    #experience-slider.fade-in {
+        animation: fade 10s infinite;
+    }
+
+    .items-container {
+        font-size: 20px;
+        color: var(--c-red);
+        margin: auto;
+        width: 20vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+
+    @keyframes fade_old {
+        0% {
+            opacity: 0;
+            transform: rotate3d(2, 2, 0, 60deg);
+        }
+        20% {
+            opacity: 1;
+            transform: rotate3d(0, 0, 0, 24deg);
+        }
+        80% {
+            opacity: 1;
+            transform: rotate3d(0, 0, 0, 24deg);
+        }
+        100% {
+            opacity: 0;
+            transform: rotate3d(-2, -2, 0, 60deg);
+        }
+    }
+
+    @keyframes fade {
+        0% {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        20% {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+        80% {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
     }
 }
 
-@keyframes fade {
-    0% {
-        opacity: 0;
-        transform: translateX(100%);
+/*@media (min-width: 768px) {*/
+/*}*/
+
+
+
+/*@media (min-width: 1366px) {*/
+@media (min-width: 768px) {
+    #experience-slider {
+        perspective: 1000px;
     }
-    20% {
-        opacity: 1;
-        transform: translateX(0%);
+
+    #experience-slider .wrapper {
+        max-width: 60vw;
+        width: 60vw;
+        height: 20vw;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
-    80% {
-        opacity: 1;
-        transform: translateX(0%);
+
+    #experience-slider .header {
+        font-weight: 600;
+        font-size: 32px;
+        text-align: center;
     }
-    100% {
-        opacity: 0;
-        transform: translateX(-100%);
+
+    #experience-slider small {
+        display: block;
+        color: #7f8c8d;
+        font-weight: 300;
+        font-size: 28px;
+    }
+
+    #experience-slider .main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #experience-slider .main .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    #experience-slider {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+    }
+
+    #experience-slider.fade-in {
+        animation: fade 10s infinite;
+    }
+
+    .items-container {
+        font-size: 20px;
+        color: var(--c-red);
+        margin: auto;
+        width: 20vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+
+    @keyframes fade_old {
+        0% {
+            opacity: 0;
+            transform: rotate3d(2, 2, 0, 60deg);
+        }
+        20% {
+            opacity: 1;
+            transform: rotate3d(0, 0, 0, 24deg);
+        }
+        80% {
+            opacity: 1;
+            transform: rotate3d(0, 0, 0, 24deg);
+        }
+        100% {
+            opacity: 0;
+            transform: rotate3d(-2, -2, 0, 60deg);
+        }
+    }
+
+    @keyframes fade {
+        0% {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        20% {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+        80% {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
     }
 }
+

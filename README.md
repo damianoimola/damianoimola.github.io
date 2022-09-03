@@ -1,3 +1,3 @@
 # damianoimola.github.io
 
-Hi, I am Imola Damiano from Italy and this is my website.
+Hi, glad to see you there. That's my website, hope you'll like it!

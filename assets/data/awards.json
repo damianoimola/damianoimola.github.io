@@ -13,6 +13,13 @@
       "date": "09/2020",
       "link": "https://www.coursera.org/account/accomplishments/specialization/certificate/RJ44N22F7MN5",
       "front" : true
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "TensorFlow: Advanced Techniques",
+      "date": "09/2022",
+      "link": "https://www.coursera.org/account/accomplishments/specialization/certificate/86EYGRSBB2LJ",
+      "front" : true
     }
   ],
   "certifications" : [
@@ -29,6 +36,13 @@
       "date": "09/2020",
       "link": "https://www.coursera.org/account/accomplishments/certificate/JEGN4DE8PPXX",
       "front" : true
+    },
+    {
+      "org": "deeplearning.ai",
+      "name": "Generative Deep Learning with TensorFlow",
+      "date": "08/2022",
+      "link": "https://www.coursera.org/account/accomplishments/certificate/2XBAQG9PAK4F",
+      "front" : false
     },
     {
       "org": "deeplearning.ai",

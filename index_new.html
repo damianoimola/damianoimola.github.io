@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/slider.css" />
     <!--  box icon  -->
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+<!--    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>-->
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +24,8 @@
     <!--  custom  -->
     <script src="assets/js/experience-slider.js" type="application/javascript"></script>
     <script src="assets/js/awards-displayer.js" type="application/javascript"></script>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/af5c18ea7b.js" crossorigin="anonymous"></script>
     <!--  Google Analytics  -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSPPEVDZ7B"></script>
@@ -37,7 +39,7 @@
 <body>
     <section class="welcome-view">
         <div class="section-header">
-            <i class='bx bx-terminal logo'></i>
+            <img src="assets/images/ml-icon.png" style="width:120px; filter: invert(0.9);" alt="" />
             <a href="#contacts" class="reach-me"><span>Reach me</span></a>
         </div>
         <div class="section-content">
@@ -55,9 +57,6 @@
         <div class="section-content">
             <span class="section-title">Experiences</span>
             <div class="slider-wrapper" id="slider-wrapper">
-                <!-- <div id="experience-list-wrapper" class="experience-list-wrapper"></div>
-                <div id="experience-description-wrapper" class="experience-description-wrapper"></div> -->
-
                 <div id="experience-slider"></div>
             </div>
         </div>
@@ -71,25 +70,38 @@
             <div class="education-group">
 
                 <div class="education">
-                    <img class="logo" src="assets/images/logo_enrico_fermi.png" alt="ITT Enrico Fermi" />
-                    <div class="description">
-                        <div class="name">ITT Enrico Fermi</div>
-                        <div class="type">High School</div>
+                    <div style="display: flex;flex-direction: column;justify-content: space-evenly;">
+                        <img class="logo" src="assets/images/logo_enrico_fermi.png" alt="ITT Enrico Fermi" />
+                        <div class="description">
+                            <div class="name">ITT Enrico Fermi</div>
+                            <div class="type">High School</div>
+                        </div>
+                        <div class="mark">83/100</div>
                     </div>
-                    <div class="title">Diploma of Computer Expert</div>
-                    <div class="mark">83/100</div>
-                    <div class="thesis"><strong>Thesis</strong></br>Internet of Things</div>
+                    <div style="display: flex;flex-direction: column;justify-content: space-evenly;">
+                        <div class="title">Diploma of Computer Expert</div>
+                        <div class="thesis"><strong>Thesis</strong></br>Internet of Things</div>
+                    </div>
                 </div>
 
                 <div class="education">
-                    <img class="logo" src="assets/images/logo_tor_vergata.png" alt="Università degli studi di Roma, Tor Vergata" />
-                    <div class="description">
-                        <div class="name">Tor Vergata</div>
-                        <div class="type">University</div>
+                    <div style="display: flex;flex-direction: column;justify-content: space-evenly;">
+                        <img class="logo" src="assets/images/logo_tor_vergata.png" alt="Università degli studi di Roma, Tor Vergata" />
+                        <div class="description">
+                            <div class="name">TorVergata</div>
+                            <div class="type">University</div>
+                        </div>
+                        <div class="mark">Expected grad 2023</div>
                     </div>
-                    <div class="title">Bachelor Degree in Software Engineering</div>
-                    <div class="mark">Expected graduation 2023</div>
-                    <div class="thesis"><strong>Thesis</strong></br>Burnout: application of a Convolutional Neural Network for identification of Stress at work</div>
+                    <div style="display: flex;flex-direction: column;justify-content: space-evenly;">
+                        <div class="title">Bachelor Degree in Software Engineering</div>
+                        <div class="thesis"><strong>Thesis</strong></br>Approccio di Apprendimento
+                            supervisionato per la rilevazione
+                            dello Stress tramite una Rete
+                            Neurale Convoluzionale utilizzando
+                            l’elaborazione audio
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -133,44 +145,74 @@
         <div class="section-content">
             <span class="section-title">Contacts</span>
 
-            <div class="contact-group">
-                <div class="contact">
-                    <div class="contact-icon">
-                        <i class='bx bxl-github'></i>
-                    </div>
-                    <div class="contact-text">
-                        <a class="no-style" href="https://github.com/damianoimola">GitHub Profile</a>
-                    </div>
+<!--            <div class="contact-group">-->
+<!--                <div class="contact">-->
+<!--                    <div class="contact-icon">-->
+<!--                        <i class="fa-brands fa-github"></i>-->
+<!--                    </div>-->
+<!--                    <div class="contact-text">-->
+<!--                        <a class="no-style" href="https://github.com/damianoimola">GitHub Profile</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="contact">-->
+<!--                    <div class="contact-icon">-->
+<!--                        <i class="fa-brands fa-linkedin-in"></i>-->
+<!--                    </div>-->
+<!--                    <div class="contact-text">-->
+<!--                        <a class="no-style" href="https://www.linkedin.com/in/damianoimola/">LinkedIn Profile</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="contact">-->
+<!--                    <div class="contact-icon">-->
+<!--                        <i class="fa-brands fa-stack-exchange"></i>-->
+<!--                    </div>-->
+<!--                    <div class="contact-text">-->
+<!--                        <a class="no-style" href="https://www.linkedin.com/in/damianoimola/">Cross Validated Profile</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="contact">-->
+<!--                    <div class="contact-icon">-->
+<!--                        <i class="fa-solid fa-at"></i>-->
+<!--                    </div>-->
+<!--                    <div class="contact-text">-->
+<!--                        <a class="no-style" href="mailto:damianoimola@outlook.it">Mail me</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="contact">-->
+<!--                    <div class="contact-icon">-->
+<!--                        <i class="fa-solid fa-user-graduate"></i>-->
+<!--                    </div>-->
+<!--                    <div class="contact-text">-->
+<!--                        <a class="no-style" href="assets/files/Damiano%20Imola%20-%20Resume.pdf">Resume</a>-->
+<!--&lt;!&ndash;                        <br />&ndash;&gt;-->
+<!--&lt;!&ndash;                        <a class="no-style" href="assets/files/Damiano%20Imola%20-%20Resume%20(IT).pdf">IT</a> |&ndash;&gt;-->
+<!--&lt;!&ndash;                        <a class="no-style" href="assets/files/Damiano%20Imola%20-%20Resume%20(EN).pdf">EN</a>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <div>
+                <div style="padding-bottom: 10px">
+                    <span><i class="fa-brands fa-github"></i></span>
+                    <span><a class="no-style" href="https://github.com/damianoimola">GitHub Profile</a></span>
                 </div>
-                <div class="contact">
-                    <div class="contact-icon">
-                        <i class='bx bxl-linkedin-square'></i>
-                    </div>
-                    <div class="contact-text">
-                        <a class="no-style" href="https://www.linkedin.com/in/damianoimola/">LinkedIn Profile</a>
-                    </div>
+                <div style="padding-bottom: 10px">
+                    <span><i class="fa-brands fa-linkedin-in"></i></span>
+                    <span><a class="no-style" href="https://www.linkedin.com/in/damianoimola/">LinkedIn Profile</a></span>
                 </div>
-                <div class="contact">
-                    <div class="contact-icon">
-                        <i class='bx bxs-paper-plane' ></i>
-                    </div>
-                    <div class="contact-text">
-                        <a class="no-style" href="mailto:damianoimola@outlook.it">Mail me</a>
-                    </div>
+                <div style="padding-bottom: 10px">
+                    <span><i class="fa-brands fa-stack-exchange"></i></span>
+                    <span><a class="no-style" href="https://www.linkedin.com/in/damianoimola/">Cross Validated Profile</a></span>
                 </div>
-                <div class="contact">
-                    <div class="contact-icon">
-                        <i class='bx bxs-user-detail' ></i>
-                    </div>
-                    <div class="contact-text">
-                        <a class="no-style" href="assets/files/Damiano%20Imola%20-%20Resume.pdf">Resume</a>
-<!--                        <br />-->
-<!--                        <a class="no-style" href="assets/files/Damiano%20Imola%20-%20Resume%20(IT).pdf">IT</a> |-->
-<!--                        <a class="no-style" href="assets/files/Damiano%20Imola%20-%20Resume%20(EN).pdf">EN</a>-->
-                    </div>
+                <div style="padding-bottom: 10px">
+                    <span><i class="fa-solid fa-at"></i></span>
+                    <span><a class="no-style" href="mailto:damianoimola@outlook.it">Personal e-mail</a></span>
+                </div>
+                <div>
+                    <span><i class="fa-solid fa-user-graduate"></i></span>
+                    <span><a class="no-style" href="assets/files/Damiano%20Imola%20-%20Resume.pdf">Updated resume</a></span>
                 </div>
             </div>
-
         </div>
     </section>
 
