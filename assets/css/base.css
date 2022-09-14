@@ -22,8 +22,7 @@ a.no-style:link {
     text-decoration: inherit;
     color: inherit;
 }
-
-a.no-style:visited {
+a.no-style:link {
     text-decoration: inherit;
     color: inherit;
 }
