@@ -28,6 +28,10 @@ a.no-style:visited {
     color: inherit;
 }
 
+a.no-style:visited {
+    text-decoration: inherit;
+    color: inherit;
+}
 
 
 
