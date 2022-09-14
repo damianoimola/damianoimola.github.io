@@ -79,6 +79,7 @@ a.no-style:visited {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        margin: 40px 0 40px 0;
     }
 
     section.welcome-view .section-content {
@@ -91,7 +92,7 @@ a.no-style:visited {
     section.welcome-view .section-content .title {
         font-weight: bold;
         color: var(--c-white);
-        font-size: 80px;
+        font-size: 50px;
         max-width: 80vw;
         margin: auto;
     }
@@ -103,8 +104,8 @@ a.no-style:visited {
     }
 
     section.welcome-view .section-content .image {
-        width: 300px;
-        height: 300px;
+        width: 250px;
+        height: 250px;
         margin: auto;
     }
 
@@ -115,8 +116,8 @@ a.no-style:visited {
     }
 
     section.welcome-view .section-footer .image {
-        width: 300px;
-        height: 200px;
+        width: 200px;
+        height: 150px;
     }
 
 
@@ -174,7 +175,7 @@ a.no-style:visited {
         justify-content: center;
         z-index: 1;
         margin: 5vw;
-        font-size: 250%;
+        /*font-size: 250%;*/
     }
 
     section.education-view .section-content .section-title {
@@ -197,7 +198,7 @@ a.no-style:visited {
         padding: 20px;
         border-radius: 5px;
         box-shadow: rgb(255 255 255 / 10%) 0px 1px 1px 0px inset, rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 30px 60px -30px;
-        height: 600px;
+        height: 300px;
         width: 90vw;
         margin-bottom: 80px;
     }
@@ -223,7 +224,7 @@ a.no-style:visited {
         flex-direction: column;
         justify-content: center;
         margin: 5vw;
-        font-size: 200%;
+        font-size: 20px;
     }
 
     section.award-view .section-content .section-title {
@@ -243,7 +244,7 @@ a.no-style:visited {
     }
 
     section.award-view .section-content .awards-group .award .type {
-        font-size: 70px;
+        font-size: 30px;
     }
 
     section.award-view .section-content .awards-group .award tr td {
@@ -447,6 +448,7 @@ a.no-style:visited {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        margin: 40px 0 40px 0;
     }
 
     section.welcome-view .section-content{
