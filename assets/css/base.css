@@ -443,8 +443,6 @@ a.no-style:visited {
     section.welcome-view .section-header .reach-me{
         color: var(--c-red);
         border: 2px solid var(--c-red);
-        padding-right: 20px;
-        padding-left: 20px;
         border-top-right-radius: 20px;
         border-bottom-left-radius: 20px;
         font-weight: 800;
@@ -453,7 +451,8 @@ a.no-style:visited {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin: 40px 0 40px 0;
+        margin: auto;
+        padding: 10px;
     }
 
     section.welcome-view .section-content{
