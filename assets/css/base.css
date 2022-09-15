@@ -72,8 +72,6 @@ a.no-style:visited {
     section.welcome-view .section-header .reach-me {
         color: var(--c-red);
         border: 2px solid var(--c-red);
-        padding-right: 20px;
-        padding-left: 20px;
         border-top-right-radius: 20px;
         border-bottom-left-radius: 20px;
         font-weight: 800;
@@ -82,7 +80,8 @@ a.no-style:visited {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin: 40px 0 40px 0;
+        margin: auto;
+        padding: 10px;
     }
 
     section.welcome-view .section-content {
@@ -95,15 +94,17 @@ a.no-style:visited {
     section.welcome-view .section-content .title {
         font-weight: bold;
         color: var(--c-white);
-        font-size: 50px;
-        max-width: 80vw;
+        font-size: 40px;
+        max-width: 90vw;
         margin: auto;
     }
 
     section.welcome-view .section-content .caption {
         font-weight: lighter;
         color: var(--c-white);
-        font-size: 40px;
+        font-size: 25px;
+        margin: auto;
+        width: 90vw;
     }
 
     section.welcome-view .section-content .image {
@@ -140,7 +141,7 @@ a.no-style:visited {
     }
 
     section.experience-view .section-content .section-title {
-        font-size: 100px;
+        font-size: 45px;
     }
 
 
@@ -151,7 +152,7 @@ a.no-style:visited {
         /*flex-direction: row;*/
         flex-direction: column;
         justify-content: space-around;
-        height: 50vh;
+        height: 100vh;
         max-height: 60vh;
     }
 
@@ -168,7 +169,7 @@ a.no-style:visited {
         position: absolute;
         width: 100%;
         background: var(--c-red);
-        height: 1400px;
+        height: 750px;
         z-index: 0;
     }
 
@@ -183,7 +184,7 @@ a.no-style:visited {
 
     section.education-view .section-content .section-title {
         text-align: center;
-        font-size: 100px;
+        font-size: 45px;
     }
 
     section.education-view .section-content .education-group {
@@ -232,14 +233,14 @@ a.no-style:visited {
 
     section.award-view .section-content .section-title {
         text-align: end;
-        font-size: 100px;
+        font-size: 45px;
     }
 
     section.award-view .section-content .awards-group {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        /*! padding-bottom: 30p; */
+        font-size: 15px;
     }
 
     section.award-view .section-content .awards-group .award {
@@ -274,12 +275,12 @@ a.no-style:visited {
         /*            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;*/
 
         /*box-shadow:rgb(38 57 77) 0px 0px 60px 0px;*/
-        font-size: 300%;
+        /*font-size: 300%;*/
     }
 
     section.contacts-view .section-content .section-title {
         /*text-align: end;*/
-        font-size: 100px;
+        font-size: 45px;
     }
 
     section.contacts-view .section-content .contact-group {
@@ -333,7 +334,7 @@ a.no-style:visited {
         min-height: 200px;
         height: 15vw;
         top: -9vw;
-        left: -50px;
+        left: -40px;
         background-color: var(--c-white);
         transform: rotate(
                 356deg
@@ -360,6 +361,7 @@ a.no-style:visited {
 
     section.others-view .section-content img {
         border-radius: 20px;
+        width: 200px;
     }
 
     section.others-view .footer {
