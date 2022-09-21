@@ -84,7 +84,7 @@
       "name": "Cybersecurity Essentials",
       "date": "05/2018",
       "link": "#",
-      "front" : true
+      "front" : false
     },
     {
       "org": "deeplearning.ai",

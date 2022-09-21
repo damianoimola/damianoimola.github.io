@@ -94,7 +94,7 @@ a.no-style:visited {
     section.welcome-view .section-content .title {
         font-weight: bold;
         color: var(--c-white);
-        font-size: 40px;
+        font-size: 25px;
         max-width: 90vw;
         margin: auto;
     }
@@ -102,14 +102,14 @@ a.no-style:visited {
     section.welcome-view .section-content .caption {
         font-weight: lighter;
         color: var(--c-white);
-        font-size: 25px;
+        font-size: 20px;
         margin: auto;
         width: 90vw;
     }
 
     section.welcome-view .section-content .image {
-        width: 250px;
-        height: 250px;
+        width: 150px;
+        height: 150px;
         margin: auto;
     }
 
@@ -120,8 +120,8 @@ a.no-style:visited {
     }
 
     section.welcome-view .section-footer .image {
-        width: 200px;
-        height: 150px;
+        width: 100px;
+        height: 75px;
     }
 
 
@@ -146,7 +146,6 @@ a.no-style:visited {
 
 
     section.experience-view .section-content .slider-wrapper {
-        max-width: 80vw;
         /*background-color: blue;*/
         display: flex;
         /*flex-direction: row;*/
@@ -199,17 +198,17 @@ a.no-style:visited {
         justify-content: space-around;
         text-align: center;
         background: var(--c-white);
-        padding: 20px;
+        padding: 10px;
         border-radius: 5px;
         box-shadow: rgb(255 255 255 / 10%) 0px 1px 1px 0px inset, rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 30px 60px -30px;
-        height: 300px;
+        height: 30vh;
         width: 90vw;
         margin-bottom: 80px;
+        font-size: 10;
     }
 
     section.education-view .section-content .education-group .education .logo {
-        /*width: 100px;*/
-        height: 100px;
+        width: 100px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -240,19 +239,18 @@ a.no-style:visited {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        font-size: 15px;
+        font-size: 1.9vh;
     }
 
     section.award-view .section-content .awards-group .award {
-        padding-bottom: 50px;
     }
 
     section.award-view .section-content .awards-group .award .type {
-        font-size: 30px;
+        font-size: 25px;
     }
 
     section.award-view .section-content .awards-group .award tr td {
-        padding: 10px;
+        padding: 5px;
     }
 
 
@@ -334,7 +332,7 @@ a.no-style:visited {
         min-height: 200px;
         height: 15vw;
         top: -9vw;
-        left: -40px;
+        left: -20px;
         background-color: var(--c-white);
         transform: rotate(
                 356deg
