@@ -14,8 +14,14 @@
 
 @font-face {
     font-family: 'Poppins';
-
 }
+
+@font-face {
+    font-family: "Axiforma";
+    src: url('../fonts/Axiforma-Regular.ttf');
+    src: url('../fonts/Axiforma-Regular.ttf') format('truetype');
+}
+
 
 
 a.no-style:link {
@@ -42,7 +48,7 @@ a.no-style:visited {
         padding: 0;
         box-sizing: border-box;
 
-        font-family: 'Poppins', sans-serif;
+        font-family: 'axiforma', sans-serif;
         scroll-behavior: smooth;
     }
 
@@ -201,10 +207,10 @@ a.no-style:visited {
         padding: 10px;
         border-radius: 5px;
         box-shadow: rgb(255 255 255 / 10%) 0px 1px 1px 0px inset, rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 30px 60px -30px;
-        height: 30vh;
+        /*height: 30vh;*/
         width: 90vw;
         margin-bottom: 80px;
-        font-size: 10;
+        /*font-size: 10;*/
     }
 
     section.education-view .section-content .education-group .education .logo {
@@ -212,6 +218,18 @@ a.no-style:visited {
         margin-left: auto;
         margin-right: auto;
     }
+
+
+    section.education-view .section-content .education-group .education .thesis{
+        margin: 5px 10px;
+        text-wrap: normal;
+    }
+
+
+
+
+
+
 
 
     /*AWARD VIEW*/
@@ -283,10 +301,11 @@ a.no-style:visited {
 
     section.contacts-view .section-content .contact-group {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-around;
         flex-wrap: wrap;
         margin-top: 30px;
+        font-size: 20px;
     }
 
     section.contacts-view .section-content .contact-group .contact {
@@ -406,7 +425,7 @@ a.no-style:visited {
         padding: 0;
         box-sizing: border-box;
 
-        font-family: 'Poppins', sans-serif;
+        font-family: 'axiforma', sans-serif;
         scroll-behavior: smooth;
     }
 
@@ -638,16 +657,25 @@ a.no-style:visited {
         padding: 20px;
         border-radius: 5px;
         box-shadow: rgb(255 255 255 / 10%) 0px 1px 1px 0px inset, rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 30px 60px -30px;
-        height: 475px;
-        width: 250px;
+        /*height: 475px;*/
+        /*width: 250px;*/
+        width: 300px;
     }
 
     section.education-view .section-content .education-group .education .logo{
         /*width: 100px;*/
         height: 100px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 10px auto;
     }
+
+    section.education-view .section-content .education-group .education .title{
+        margin: 10px 0;
+    }
+
+
+
+
+
 
 
     /*AWARD VIEW*/
@@ -730,12 +758,13 @@ a.no-style:visited {
 
     section.contacts-view .section-content .contact-group{
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+        flex-direction: column;
         flex-wrap: wrap;
         margin-top: 30px;
+        font-size: 30px;
     }
 
+    /*ALL CONTACTS AFTER THIS IS NOT USEFULL*/
     section.contacts-view .section-content .contact-group .contact{
         width: 200px;
         height: 200px;
@@ -786,6 +815,11 @@ a.no-style:visited {
         );
         transform-origin: top right;
     }
+
+
+
+
+
 
 
 

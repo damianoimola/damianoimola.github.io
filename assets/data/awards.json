@@ -169,6 +169,11 @@
       "org": "Capgemini",
       "name": "Scholarship for an experimental Master’s degree thesis topic as a Bachelor’s student",
       "front" : true
+    },
+    {
+      "org": "University of Rome, Tor Vergata",
+      "name": "Scholarship for merit during the Bachelor degree",
+      "front" : true
     }
   ]
 }
