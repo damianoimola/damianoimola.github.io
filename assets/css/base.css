@@ -174,7 +174,7 @@ a.no-style:visited {
         position: absolute;
         width: 100%;
         background: var(--c-red);
-        height: 750px;
+        height: 85vh;
         z-index: 0;
     }
 
@@ -209,8 +209,8 @@ a.no-style:visited {
         box-shadow: rgb(255 255 255 / 10%) 0px 1px 1px 0px inset, rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 30px 60px -30px;
         /*height: 30vh;*/
         width: 90vw;
-        margin-bottom: 80px;
-        /*font-size: 10;*/
+        margin-bottom: 5vh;
+        font-size: 1.7vh;
     }
 
     section.education-view .section-content .education-group .education .logo {
