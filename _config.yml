@@ -13,12 +13,15 @@
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin2   : "dirt"
+
+
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "Damiano Imola"
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
+subtitle                 : "" # site tagline that appears below site title in masthead
 name                     : "Your Name"
 description              : "An amazing website."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -111,52 +114,40 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  name             : "Damiano Imola"
+  avatar           : "/assets/images/bio-photo.jpg"
+  bio              : "An ispiring Computer Vision Engineer. Fan of Tech, food and travel."
+  location         : "Rome, Italy"
+  email            : damiano.imola@outlook.it
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+      url: "mailto:damiano.imola@outlook.it"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
+      url: "https://damianoimola.github.io"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: "https://github.com/damianoimola"
+    - label: "Linkedin"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/damianoimola/"
 
 # Site Footer
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:damiano.imola@outlook.it"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://damianoimola.github.io"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "LinkedIn"
+      url: "https://github.com/damianoimola"
+    - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url:
+      url: "https://www.linkedin.com/in/damianoimola/"
 
 
 # Reading Files
@@ -207,6 +198,7 @@ incremental: false
 
 # Markdown Processing
 kramdown:
+  html_to_native: true # TOCHECK: what does he do?
   input: GFM
   hard_wrap: false
   auto_ids: true
