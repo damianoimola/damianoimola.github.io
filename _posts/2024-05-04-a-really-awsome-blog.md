@@ -2,7 +2,7 @@
 title: "A really awsome blog"
 date: 2024-05-04
 header:
-  image: /assets/images/horizontal-placeholder.jpg
+  image: /assets/images/horizontal-placeholder-2.jpg
 categories:
   - blog
 tags:

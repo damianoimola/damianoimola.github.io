@@ -2,13 +2,16 @@
 main:
   #- title: "About me"
   #  url: /aboutme/
+
   - title: "Posts"
     url: /posts/
-  # - title: "Portfolio"
-  #   url: /portfolio/
-  #- title: "Resume"
-  #  url: /resume/
-  - title: "Categories"
-    url: /categories/
-  - title: "Tags"
-    url: /tags/
+
+  - title: "Resume"
+    url: https://www.dropbox.com/scl/fi/o59ud6t7t5pyfrh7zvql3/Damiano-Imola-Resume.pdf?rlkey=untl2500lhx5hjw4hg1ojphka&dl=0
+
+  - title: "Portfolio"
+    url: /portfolio/
+  # - title: "Categories"
+  #   url: /categories/
+  # - title: "Tags"
+  #   url: /tags/

@@ -114,7 +114,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Damiano Imola"
+  name             : "TL;DR :point_down:"
   avatar           : "/assets/images/bio-photo.jpg"
   bio              : "An ispiring Computer Vision Engineer. Fan of Tech, food and travel."
   location         : "Rome, Italy"
@@ -191,6 +191,7 @@ incremental: false
 kramdown:
   html_to_native: true # TOCHECK: what does he do?
   input: GFM
+  math_engine: katex
   hard_wrap: false
   auto_ids: true
   footnote_nr: 1
