@@ -2,7 +2,7 @@
 title: "The 2D Fourier Analysis"
 date: 2024-05-04
 header:
-  image: /assets/images/fourier-analysis-post-wallpaper.jpg
+  image: /assets/images/fourier-analysis-post-wallpaper-cropped.jpg
 categories:
   - computer vision
 tags:
