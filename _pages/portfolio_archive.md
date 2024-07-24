@@ -15,8 +15,12 @@ The details for each of the below projects can be found inside my resume. For de
 ### Burnout Freeze Up - Bachelor Thesis
 For prevention and control of employee's burnout in the workplace, in Python.
 
+![bachelor-project-img](/assets/images/bachelor-project.png)
+
 ### European Best Engineering Competition (EBEC) 2022
 Built a refridgerating system and designed a smart home device.
+
+![ebec-project-img](/assets/images/ebec-project.jpg)
 
 ---
 
@@ -45,7 +49,7 @@ NVidia Labs - DiffiT: Diffusion Vision Transformer for Image Generation, in Pyth
 ### Robot programming
 Dynamic Planner, in ROS, RViz using C++.
 
-![ro-project-img](/assets/images/rp-project.png)
+![rp-project-img](/assets/images/rp-project.png)
 
 ---
 
@@ -54,18 +58,24 @@ Dynamic Planner, in ROS, RViz using C++.
 ### Operating Systems
 Cinema booking system, in C.
 
-### Operational Research
-Train station optimization, in AMPL.
-
 ### Software Engineering
 Fincierge: the financial concierge, in Java.
 
-### Databases
-Designed a database for a local shop, in SQL.
+![ispw-project-img](/assets/images/ispw-project.jpg)
+
+### Mobile programming
+Mobile client-server application for rider's scheduling, in Kotlin.
+
+![mp-project-img](/assets/images/mp-project.jpg)
 
 ### Innovation management and Entrepreneurship
 Business plan for a research-based Startup.
 
-### Mobile programming
-Mobile client-server application for rider's scheduling, in Kotlin.
+![mie-project-img](/assets/images/mie-project.jpg)
+
+### Operational Research
+Train station optimization, in AMPL.
+
+### Databases
+Designed a database for a local shop, in SQL.
 
