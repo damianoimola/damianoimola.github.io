@@ -61,7 +61,7 @@ Train station optimization, in AMPL.
 Fincierge: the financial concierge, in Java.
 
 ### Databases
-Designed a database for a pharmacy, in SQL.
+Designed a database for a local shop, in SQL.
 
 ### Innovation management and Entrepreneurship
 Business plan for a research-based Startup.
