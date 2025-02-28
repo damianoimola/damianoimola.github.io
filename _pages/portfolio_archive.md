@@ -12,7 +12,13 @@ The details for each of the below projects can be found inside my resume. For de
 ---
 # :office: Industry
 
-### Burnout Freeze Up - Bachelor Thesis
+### Honours Program (Sapienza)
+Ongoing, in Python.
+
+### Generative Artificial Intelligence for Domain Generalization - Master thesis Thesis (Leonardo S.p.A. - Spienza)
+Ongoing, in Python.
+
+### Burnout Freeze Up - Bachelor Thesis (Capgemini - Tor Vergata)
 For prevention and control of employee's burnout in the workplace, in Python.
 
 ![bachelor-project-img](/assets/images/bachelor-project.png)
@@ -22,9 +28,34 @@ Built a refridgerating system and designed a smart home device.
 
 ![ebec-project-img](/assets/images/ebec-project.jpg)
 
+
 ---
 
 # :books: Master in Artificial Intelligence and Robotics - University of Rome, La Sapienza
+
+
+### Elective in Artificial Intelligence (2nd module)
+Ongoing, in Python.
+
+### Probabilistic Robotics
+Planar Monocular SLAM, in Python.
+
+![probrob-project-img](/assets/images/probrob-project.png)
+
+### Deep Learning
+Neural Search Indexing Optimization, in Python.
+
+![dl-project-img](/assets/images/dl-project.png)
+
+### Autonomous and mobile Robotics
+Real-Time Safe Bipedal Robot Navigation using Linear Discrete Control Barrier Function, in Python.
+
+![amr-project-img](/assets/images/amr-project.gif)
+
+### Elective in Artificial Intelligence (1st module)
+DynaGEST: Appearance Based Gaze Estimation using Swin Transformer and Dynamic Convolutions, in Python.
+
+![eai-1-project-img](/assets/images/eai-1-project.png)
 
 ### Multilingual Natural language Processing
 Adversarial Natural Language Inference, in Python.
