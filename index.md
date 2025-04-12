@@ -18,8 +18,9 @@ author_profile: true
 	Generally, food is always appreciated here; if I haven't mentioned it before, I am Italian, so please (I won't say anything more). I really like what I cook and my favorite dish is called "pasta risottata", with whatever human-eatable sauce :spaghetti:.
 </p>
 <p style='text-align: justify;'>
-	The last passion that I'm slowly building is travelling. Each time you come back from a trip, you are a different person in many areas: personally, emotionally, wisely (ok, you got it). The visited countries are: :us:, :uk:, :netherlands:, :fr:, :es: and :it:.
+	The last passion that I'm slowly building is travelling. Each time you come back from a trip, you are a different person in many areas: personally, emotionally, wisely (ok, you got it). The visited countries are: :us:, :uk:, :netherlands:, :fr:, :romania:, :es: and :it:.
 </p>
+<!-- EMOJIS: https://github.com/ikatyang/emoji-cheat-sheet?tab=readme-ov-file#flags -->
 <p style='text-align: justify;'>
 	I strongly think that AI is not here to threaten humans making us redundant, but to augment our abilities :brain:.
 </p>
