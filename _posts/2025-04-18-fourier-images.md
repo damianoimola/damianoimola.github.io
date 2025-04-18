@@ -1,6 +1,6 @@
 ---
 title: "Decoding Images: Fourier Transform for 2D & 3D Image Analysis"
-date: 2025-04-19
+date: 2025-04-18
 header:
   image: /assets/images/fourier-analysis-post-wallpaper-cropped.jpg
 categories:
