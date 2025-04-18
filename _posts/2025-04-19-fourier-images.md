@@ -1,6 +1,6 @@
 ---
-title: "The 2D Fourier Analysis"
-date: 2024-07-29
+title: "Decoding Images: Fourier Transform for 2D & 3D Image Analysis"
+date: 2025-04-19
 header:
   image: /assets/images/fourier-analysis-post-wallpaper-cropped.jpg
 categories:
@@ -13,7 +13,9 @@ author_profile: false
 toc: true
 ---
 
-Today we'll see how a simple approach like the 2D image analysis via Fourier would allows us to discover a lot of information about images.
+Today we’ll explore how a classic mathematical tool reveals rich information about patterns, textures, and structures, especially when dealing with noisy or repetitive images.
+
+
 
 
 
