@@ -71,19 +71,34 @@ Whatever holds for 1D domain, holds also for 2D domain, but it's *just* more ver
 
 $$
 \begin{aligned}
-    F(u, v)=\int_{-\infty}^{+\infty}f(x, y)\,e^{-i2\pi (ux + vy)}dx\;dy
+    F(u, v)=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}f(x, y)\,e^{-i2\pi (ux + vy)}dx\;dy
 \end{aligned}
 $$
+
 and the usual Antitransform
+
 $$
 \begin{aligned}
-    f(x, y)=\int_{-\infty}^{+\infty}F(u, v)\,e^{i2\pi (ux + vy)}du\;dv
+    f(x, y)=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}F(u, v)\,e^{i2\pi (ux + vy)}du\;dv
 \end{aligned}
 $$
 
 Being more specific, when we apply fourier transforms to digital images, which are discrite and finite, we can switch to summations in place of the integrals adn we call it **Discrete Fourier Transforms (DFT)**. They are defined as follows
 
-TODO
+$$
+\begin{aligned}
+    F(u, v)=\sum_{x=0}^{M-1} \sum_{y=0}^{N-1} f(x, y)\,e^{-i2\pi (\frac{ux}{M} + \frac{vy}{N})}dx\;dy
+\end{aligned}
+$$
+
+and the antitransform
+
+$$
+\begin{aligned}
+    f(x, y)=\sum_{u=0}^{M-1} \sum_{v=0}^{N-1} f(u, v)\,e^{i2\pi (\frac{ux}{M} + \frac{vy}{N})}du\;dv
+\end{aligned}
+$$
+
 
 Note that from now on I'll refer to *2D grayscale images*, but the very same argument can be applied to RGB images.
 
