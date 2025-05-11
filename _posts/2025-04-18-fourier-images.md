@@ -95,7 +95,7 @@ and the antitransform
 
 $$
 \begin{aligned}
-    f(x, y)=\sum_{u=0}^{M-1} \sum_{v=0}^{N-1} f(u, v)\,e^{i2\pi (\frac{ux}{M} + \frac{vy}{N})}du\;dv
+    f(x, y)=\dfrac{1}{MN}\sum_{u=0}^{M-1} \sum_{v=0}^{N-1} F(u, v)\,e^{i2\pi (\frac{ux}{M} + \frac{vy}{N})}du\;dv
 \end{aligned}
 $$
 
@@ -104,10 +104,20 @@ Note that from now on I'll refer to *2D grayscale images*, but the very same arg
 
 
 
+# Fourier Transforms interpretations
+The frequency domain of an image can reveal its textures and periodic patterns, as well as the composition of edges and gradients. In fact, threating an image as a spatial signal, from the frequency domain we obtain its spatial frequencies that encodes meaningful information:
+- **Low frequencies** represent smooth, gradual changes, like the background or large objects
+- **High frequencies** capture sharp edges, fine details and noise
+
+Being signals, they hold also other information: the Magnitude and the Phase of an image encodes a lot of information related to the underlying pixel spatial distribution:
+- **Magnitude Spectrum** indicated how much of each frequency is present.
+- **Phase Spectrum** encoded structural and positional information
+
+surprisingly the majority of the perceptual structure lies in the phase component: as we'll see, replacing an image phase while keeping another magniture leads to an hybrid that perceptually looks similar to the phase-donor image.
 
 
 
-## Amplitude and phase plots
+## Example: Lena and the Bricks
 The fourier transforms allows us to extract the phase and the plot of an image, and they have the very same meaning we've seen in 1D, but here they are spatial:
 - 
 
@@ -127,4 +137,30 @@ A way to handle them is the mixing of amplitude and phase plots from 2 different
 
 
 
-# CONTINUE SOON
+# Practical Applications in Images
+- **Image filtering:** using Fourier Transform you can Low-/High-/Band- pass filter the input image. In this way you can remove high frequency components like noise and edges (i.e. blurr the image) using Low-pass filtering, remove low-frequency components enhancing edges and details with the High-pass filtering, and perform a texture analysys and feature extraction by focusing on a specifuc frequency range with the Band-pass filtering.
+![lena-filtering](/assets/images/fourier-images/lena-filtering.png)
+
+
+- **Image Compression:** natural images tend to have most of their visual variance (i.e. information, energy) concentrated in low spatial frequencies (smooth gradients, large homogeneous regions) while high frequencies due to fine details carry less energy.
+![lena-filtering](/assets/images/fourier-images/lena-compression.png)
+
+
+- **Image Enhancement:** in frequency domain, global and local features are separate by frequency band. A way to enhance  images uses the so called *High-Boost Filtering*, which is defined as follows
+
+$$
+H(u, v)=A+D(u, v)
+$$
+
+with $A>1$ and $D(u,v)$ an high-pass mask. The same holds using a low pass mask.
+![lena-filtering](/assets/images/fourier-images/lena-enhancement.png)
+
+
+- **Watermarking in Frequency Domain:** the watermark shoud not be visible under normal viewing (the example has exaggerated watermark strength on purpose). It is capable to survive common signal/image processing techniques (compression, cropping, filtering) and geometric distortions (scaling, rotation). This method is useful to allow embedding reasonable payload securely, resisting to malicious removal. A typical embedding strategy is the *Additive Spread Spectrum*, which states the following:
+
+$$
+F_w(u,v)=F(u,v)+\alpha W(u,v)
+$$
+
+where $W$ is a structured pattern and $\alpha$ governs the stength/visibility of the pattern. There are of course also other strategies.
+![lena-filtering](/assets/images/fourier-images/lena-watermarking.png)
