@@ -1,5 +1,5 @@
 ---
-title: "Decoding Images: Fourier Transform for 2D & 3D Image Analysis"
+title: "Decoding Images: Pills Fourier Transform for 2D & 3D Image Analysis"
 date: 2025-04-18
 header:
   image: /assets/images/fourier-images/fourier-analysis-post-wallpaper-cropped.jpg
@@ -138,15 +138,18 @@ A way to handle them is the mixing of amplitude and phase plots from 2 different
 
 
 # Practical Applications in Images
-- **Image filtering:** using Fourier Transform you can Low-/High-/Band- pass filter the input image. In this way you can remove high frequency components like noise and edges (i.e. blurr the image) using Low-pass filtering, remove low-frequency components enhancing edges and details with the High-pass filtering, and perform a texture analysys and feature extraction by focusing on a specifuc frequency range with the Band-pass filtering.
+### **Image filtering** 
+Using Fourier Transform you can Low-/High-/Band- pass filter the input image. In this way you can remove high frequency components like noise and edges (i.e. blurr the image) using Low-pass filtering, remove low-frequency components enhancing edges and details with the High-pass filtering, and perform a texture analysys and feature extraction by focusing on a specifuc frequency range with the Band-pass filtering.
 ![lena-filtering](/assets/images/fourier-images/lena-filtering.png)
 
 
-- **Image Compression:** natural images tend to have most of their visual variance (i.e. information, energy) concentrated in low spatial frequencies (smooth gradients, large homogeneous regions) while high frequencies due to fine details carry less energy.
+### **Image Compression** 
+natural images tend to have most of their visual variance (i.e. information, energy) concentrated in low spatial frequencies (smooth gradients, large homogeneous regions) while high frequencies due to fine details carry less energy.
 ![lena-filtering](/assets/images/fourier-images/lena-compression.png)
 
 
-- **Image Enhancement:** in frequency domain, global and local features are separate by frequency band. A way to enhance  images uses the so called *High-Boost Filtering*, which is defined as follows
+### **Image Enhancement** 
+in frequency domain, global and local features are separate by frequency band. A way to enhance  images uses the so called *High-Boost Filtering*, which is defined as follows
 
 $$
 H(u, v)=A+D(u, v)
@@ -156,7 +159,8 @@ with $A>1$ and $D(u,v)$ an high-pass mask. The same holds using a low pass mask.
 ![lena-filtering](/assets/images/fourier-images/lena-enhancement.png)
 
 
-- **Watermarking in Frequency Domain:** the watermark shoud not be visible under normal viewing (the example has exaggerated watermark strength on purpose). It is capable to survive common signal/image processing techniques (compression, cropping, filtering) and geometric distortions (scaling, rotation). This method is useful to allow embedding reasonable payload securely, resisting to malicious removal. A typical embedding strategy is the *Additive Spread Spectrum*, which states the following:
+### **Watermarking in Frequency Domain** 
+the watermark shoud not be visible under normal viewing (the example has exaggerated watermark strength on purpose). It is capable to survive common signal/image processing techniques (compression, cropping, filtering) and geometric distortions (scaling, rotation). This method is useful to allow embedding reasonable payload securely, resisting to malicious removal. A typical embedding strategy is the *Additive Spread Spectrum*, which states the following:
 
 $$
 F_w(u,v)=F(u,v)+\alpha W(u,v)

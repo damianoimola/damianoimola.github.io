@@ -73,6 +73,7 @@
 
 .sidebar__right {
   margin-bottom: 1em;
+  // font-size: 2em !important; // modify sidebar font
 
   @include breakpoint($large) {
     position: absolute;
