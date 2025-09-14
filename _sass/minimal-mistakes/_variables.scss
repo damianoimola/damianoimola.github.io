@@ -5,6 +5,41 @@
 /*
    Typography
    ========================================================================== */
+@font-face {
+	font-family: "start";
+	src: url("../../assets/fonts/PressStart2P-Regular.ttf");
+}
+
+@font-face {
+	font-family: "pixel";
+	src: url("../../assets/fonts/PixelifySans-VariableFont_wght.ttf");
+}
+
+@font-face {
+	font-family: "exo2";
+	src: url("../../assets/fonts/Exo2-VariableFont_wght.ttf");
+}
+
+@font-face {
+	font-family: "inter";
+	src: url("../../assets/fonts/Inter-VariableFont_opsz\,wght.ttf");
+}
+
+@font-face {
+	font-family: "orbitron";
+	src: url("../../assets/fonts/Orbitron-VariableFont_wght.ttf");
+}
+
+@font-face {
+	font-family: "bit";
+	src: url("../../assets/fonts/BitcountSingle-VariableFont_CRSV\,ELSH\,ELXP\,slnt\,wght.ttf");
+}
+
+@font-face {
+	font-family: "keyboard";
+	src: url("../../assets/fonts/LibertinusKeyboard-Regular.ttf");
+}
+
 
 $doc-font-size: 16 !default;
 
@@ -13,9 +48,12 @@ $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.3em !default;
 
 /* system typefaces */
-$serif: Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
-  "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
+// $serif: Georgia, Times, serif !default;
+$serif: "inter" !default;
+
+// $sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
+$sans-serif: "inter" !default;
+
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 
 /* sans serif typefaces */
@@ -29,9 +67,13 @@ $bodoni: "Bodoni MT", serif !default;
 $calisto: "Calisto MT", serif !default;
 $garamond: Garamond, serif !default;
 
-$global-font-family: $sans-serif !default;
-$header-font-family: $sans-serif !default;
-$caption-font-family: $serif !default;
+// EDITED: for custom font, add a @font-family at the beginning, like 'borisna'
+// $global-font-family: $sans-serif !default;
+$global-font-family: "inter" !default;
+// $header-font-family: $sans-serif !default;
+$header-font-family: "start" !default;
+// $caption-font-family: $serif !default;
+$caption-font-family: "start" !default;
 
 /* type scale */
 $type-size-1: 2.441em !default; // ~39.056px
@@ -44,7 +86,9 @@ $type-size-7: 0.6875em !default; // ~11px
 $type-size-8: 0.625em !default; // ~10px
 
 /* headline scale */
-$h-size-1: 1.563em !default; // ~25.008px
+// EDITED
+// $h-size-1: 1.563em !default; // ~25.008px
+$h-size-1: 1.30em !default; // ~25.008px
 $h-size-2: 1.25em !default; // ~20px
 $h-size-3: 1.125em !default; // ~18px
 $h-size-4: 1.0625em !default; // ~17px
@@ -149,7 +193,12 @@ $medium: 768px !default;
 $medium-wide: 900px !default;
 $large: 1024px !default;
 $x-large: 1280px !default;
-$max-width: $x-large !default;
+
+$custom-x-large: 1600px !default;
+
+// EDITED
+// $max-width: $x-large !default;
+$max-width: $custom-x-large !default;
 
 /*
    Grid
