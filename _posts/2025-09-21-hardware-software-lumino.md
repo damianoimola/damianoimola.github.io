@@ -1,6 +1,6 @@
 ---
 title: "Hardware and Software of Lumino"
-date: 2025-09-20
+date: 2025-09-21
 header:
   image: /assets/images/robotic-pet/lumino-generated-cropped.png
 categories:
