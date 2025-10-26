@@ -40,6 +40,21 @@
 	src: url("../../assets/fonts/LibertinusKeyboard-Regular.ttf");
 }
 
+@font-face {
+	font-family: "ptserif";
+	src: url("../../assets/fonts/PTSerif-Regular.ttf");
+}
+
+@font-face {
+	font-family: "poppins";
+	src: url("../../assets/fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+	font-family: "monserrat";
+	src: url("../../assets/fonts/Montserrat-Regular.ttf");
+}
+
 
 $doc-font-size: 16 !default;
 
@@ -52,7 +67,9 @@ $indent-var: 1.3em !default;
 $serif: "inter" !default;
 
 // $sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
-$sans-serif: "inter" !default;
+// EDITED
+// $sans-serif: "inter" !default;
+$sans-serif: "poppins" !default;
 
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 
@@ -69,7 +86,7 @@ $garamond: Garamond, serif !default;
 
 // EDITED: for custom font, add a @font-family at the beginning, like 'borisna'
 // $global-font-family: $sans-serif !default;
-$global-font-family: "inter" !default;
+$global-font-family: "poppins" !default;
 // $header-font-family: $sans-serif !default;
 $header-font-family: "start" !default;
 // $caption-font-family: $serif !default;

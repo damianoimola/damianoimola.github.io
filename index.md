@@ -12,10 +12,16 @@ author_profile: true
 
 *Ciao!* :wave: 
 <p style='text-align: justify;'>
-	Welcome to my blog, my name is Damiano Imola and I pursued a master's degree in <i><b>Artificial Intelligence and Robotics</b></i> at the University of Rome, La Sapienza. Formerly I studied <i><b>Computer Engineering</b></i> at University of Rome, Tor Vergata.
+	Welcome to my blog, I'm Damiano Imola, and my academic journey has taken me through a Master's degree in <i><b>Artificial Intelligence and Robotics</b></i> at the University of Rome, La Sapienza; building my solid foundation in <i><b>Computer Engineering</b></i> at University of Rome, Tor Vergata.
 </p>
 <p style='text-align: justify;'>
-	My heart belongs to Computer Vision, but I have other interests like optimization, generative modeling, image and video processing, DIY, and robotics. I love tech gadgets and deal with computers and embedded system	s (actually I have only a Raspberry Pi Zero W, but this is what I mean for <i>"embedded system"</i>) :floppy_disk:.
+	My true north is Computer Vision, however, my curiosity spans wide: optimization, generative modeling, image and video processing, and robotics. 
+</p>
+<p style='text-align: justify;'>
+	The engine under the hood of my biggest interests is parallel computing. There's a deep satisfaction, in architecting a problem so that it can be solved not just by one core, but by hundreds or thousands working in concert. The <i>"scalable, brute-force efficiency"</i>.
+</p>
+<p style='text-align: justify;'>
+	I love tech gadgets, DIY, and deal with computers and embedded systems; actually my "embedded system" adventures are mostly limited to a trusty Raspberry Pi Zero W, but this is what I mean for <i>"embedded system"</i> :floppy_disk:.
 </p>
 <p style='text-align: justify;'>
 	Generally, food is always appreciated here; if I haven't mentioned it before, I am Italian, so please (I won't say anything more). I really like what I cook and my favorite dish is called "pasta risottata", with whatever human-eatable sauce :spaghetti:.
