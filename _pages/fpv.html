@@ -1,36 +1,44 @@
 ---
 title: FPV
 permalink: /fpv/
-layout: default
+layout: null
 ---
-<!-- Tailwind + Lucide (kept in page body so layout can wrap this content) -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
-<script>
-    tailwind.config = {
-        darkMode: 'class',
-        theme: {
-            extend: {
-                fontFamily: {
-                    mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Point Visualizer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
+                    }
                 }
             }
         }
-    }
-</script>
-<style>
-    /* Custom scrollbar hiding for clean UI */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-    .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-</style>
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans transition-colors duration-200 min-h-screen">
 
-<div class="w-full bg-gray-50">
-    <div class="max-w-4xl mx-auto p-4 sm:p-8 space-y-8 text-gray-900 font-sans transition-colors duration-200 min-h-screen">
+    <div class="max-w-4xl mx-auto p-4 sm:p-8 space-y-8">
         
         <!-- Header -->
         <div class="text-center space-y-2">
@@ -61,7 +69,6 @@ layout: default
                 </div>
             </div>
             
-            <!-- Quick Action Buttons -->
             <div class="flex gap-2 mt-4 overflow-x-auto pb-2 no-scrollbar" id="buttonContainer">
                 <!-- Buttons injected by JS -->
             </div>
@@ -69,17 +76,11 @@ layout: default
 
         <!-- Visualizations Container -->
         <div class="grid grid-cols-1 gap-6">
-            
-            <!-- Float 32 -->
             <div id="card-float32"></div>
-
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Float 16 -->
                 <div id="card-float16"></div>
-                <!-- BFloat 16 -->
                 <div id="card-bfloat16"></div>
             </div>
-
         </div>
 
         <!-- Legend / Info -->
@@ -112,107 +113,54 @@ layout: default
                    <p class="text-xs text-gray-500">The IEEE 754 Conversion Formula</p>
                  </div>
             </div>
-  
             <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 font-mono text-center text-lg md:text-xl">
               Value = <span class="text-red-500 font-bold">(-1)<sup>S</sup></span> × <span class="text-blue-500 font-bold">1.M</span> × <span class="text-green-500 font-bold">2<sup>(E - Bias)</sup></span>
             </div>
-  
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-              <!-- Sign -->
               <div class="space-y-3">
-                <h4 class="font-bold text-gray-900 flex items-center gap-2">
-                  <div class="w-3 h-3 rounded-full bg-red-500 shadow-sm"></div> 
-                  Sign Bit (S)
-                </h4>
-                <p class="text-gray-600 leading-relaxed">This single bit acts as a switch for positivity.</p>
-                <div class="bg-gray-50 p-3 rounded border border-gray-100 text-xs font-mono space-y-1">
-                  <div class="flex justify-between"><span>0</span> <span class="text-gray-500">→</span> <span>Positive (+1)</span></div>
-                  <div class="flex justify-between"><span>1</span> <span class="text-gray-500">→</span> <span>Negative (-1)</span></div>
-                </div>
+                <h4 class="font-bold text-gray-900 flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-red-500 shadow-sm"></div> Sign Bit (S)</h4>
+                <p class="text-gray-600 leading-relaxed">This single bit acts as a switch for positivity. 0 → (+), 1 → (-).</p>
               </div>
-  
-              <!-- Exponent -->
               <div class="space-y-3">
-                <h4 class="font-bold text-gray-900 flex items-center gap-2">
-                  <div class="w-3 h-3 rounded-full bg-green-500 shadow-sm"></div>
-                  Exponent (E)
-                </h4>
-                <p class="text-gray-600 leading-relaxed">
-                  Determines the magnitude. The stored integer is unsigned, so we subtract a <strong>Bias</strong>.
-                </p>
-                <div class="bg-gray-50 p-3 rounded border border-gray-100 text-xs space-y-2">
-                  <div>
-                    <span class="font-bold text-gray-700">Float32 Bias:</span> 127
-                    <div class="text-gray-500 pl-2">e.g., Stored 127 → 2⁰</div>
-                  </div>
-                  <div>
-                    <span class="font-bold text-gray-700">Float16 Bias:</span> 15
-                    <div class="text-gray-500 pl-2">e.g., Stored 15 → 2⁰</div>
-                  </div>
-                </div>
+                <h4 class="font-bold text-gray-900 flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-green-500 shadow-sm"></div> Exponent (E)</h4>
+                <p class="text-gray-600 leading-relaxed">Determines the magnitude. The stored integer is unsigned, so we subtract a <strong>Bias</strong>.</p>
               </div>
-  
-              <!-- Mantissa -->
               <div class="space-y-3">
-                <h4 class="font-bold text-gray-900 flex items-center gap-2">
-                  <div class="w-3 h-3 rounded-full bg-blue-500 shadow-sm"></div>
-                  Mantissa (M)
-                </h4>
-                <p class="text-gray-600 leading-relaxed">
-                  The precision bits. For normalized numbers, there is an <strong>implicit 1</strong> before the decimal point.
-                </p>
-                <div class="bg-gray-50 p-3 rounded border border-gray-100 text-xs font-mono">
-                  <div class="mb-1 text-gray-500">Example: Stored <span class="text-blue-500">10100...</span></div>
-                  <div class="border-t border-gray-200 pt-1 mt-1">
-                    Value = <span class="font-bold">1</span>.<span class="text-blue-500">10100...</span>
-                  </div>
-                </div>
+                <h4 class="font-bold text-gray-900 flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-blue-500 shadow-sm"></div> Mantissa (M)</h4>
+                <p class="text-gray-600 leading-relaxed">The precision bits. For normalized numbers, there is an <strong>implicit 1</strong> before the decimal point.</p>
               </div>
             </div>
         </div>
-
     </div>
-</div>
 
-<!-- Application Logic -->
+    <!-- Application Logic -->
     <script>
         // --- Conversion Logic ---
-
         const float32ToBinary = (num) => {
             const buffer = new ArrayBuffer(4);
             const view = new DataView(buffer);
             view.setFloat32(0, num, false);
-            const bits = view.getUint32(0, false);
-            return bits.toString(2).padStart(32, '0');
+            return view.getUint32(0, false).toString(2).padStart(32, '0');
         };
 
         const float32ToHex = (num) => {
             const buffer = new ArrayBuffer(4);
             const view = new DataView(buffer);
             view.setFloat32(0, num, false);
-            const bits = view.getUint32(0, false);
-            return '0x' + bits.toString(16).toUpperCase().padStart(8, '0');
+            return '0x' + view.getUint32(0, false).toString(16).toUpperCase().padStart(8, '0');
         };
 
-        const floatToBFloat16Binary = (num) => {
-            const f32Binary = float32ToBinary(num);
-            return f32Binary.substring(0, 16);
-        };
+        const floatToBFloat16Binary = (num) => float32ToBinary(num).substring(0, 16);
 
         const floatToFloat16Binary = (val) => {
             const floatView = new Float32Array(1);
             const int32View = new Int32Array(floatView.buffer);
-
             floatView[0] = val;
             const x = int32View[0];
-
             let bits = (x >> 16) & 0x8000;
             let m = (x >> 12) & 0x07ff;
             let e = (x >> 23) & 0xff;
-
-            if (e < 103) {
-                return bits.toString(2).padStart(16, '0');
-            }
+            if (e < 103) return bits.toString(2).padStart(16, '0');
             if (e > 142) {
                 bits |= 0x7c00;
                 bits |= ((e == 255) ? 0 : 0) && (x & 0x007fffff);
@@ -223,27 +171,86 @@ layout: default
                 bits |= (m >> (114 - e)) + ((m >> (113 - e)) & 1);
                 return bits.toString(2).padStart(16, '0');
             }
-
             bits |= ((e - 112) << 10) | (m >> 1);
             bits += m & 1;
             return bits.toString(2).padStart(16, '0');
         };
 
-        // --- DOM Rendering ---
+        // --- Visualization Logic ---
+
+        function drawDensityChart(canvas, expBits, mantBits, currentExpStr, bias) {
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+            const numBuckets = Math.pow(2, expBits);
+            
+            ctx.clearRect(0, 0, width, height);
+            
+            const barWidth = width / numBuckets;
+            
+            // We plot log density. Density drops as exponent increases.
+            // Min Exp (Effective) = 1 (subnormal/min normal)
+            // Max Exp (Effective) = Max Normal = 2^expBits - 2
+            
+            const minExp = 1 - bias - mantBits; // Exp for smallest gap
+            const maxExp = (Math.pow(2, expBits) - 2) - bias - mantBits; // Exp for largest gap
+            
+            // Log10(Gap Size)
+            const minLogGap = Math.log10(Math.pow(2, minExp));
+            const maxLogGap = Math.log10(Math.pow(2, maxExp));
+            const logRange = maxLogGap - minLogGap;
+
+            const currentExpInt = parseInt(currentExpStr, 2);
+
+            for (let i = 0; i < numBuckets - 1; i++) { 
+                // Skip infinity bucket for density plot
+                // Effective exponent for gap calc: treat 0 (subnormal) as 1
+                const effectiveE = (i === 0) ? 1 : i; 
+                const currentGapExponent = effectiveE - bias - mantBits;
+                const logGap = Math.log10(Math.pow(2, currentGapExponent));
+                
+                // Normalize: 1.0 = Smallest Gap (High Density), 0.0 = Largest Gap (Low Density)
+                let normalized = (maxLogGap - logGap) / logRange;
+                if (normalized < 0) normalized = 0;
+                
+                const barH = Math.max(normalized * height, 2); // Ensure at least 2px visible
+                const x = i * barWidth;
+                const y = height - barH;
+                
+                if (i === currentExpInt) {
+                    ctx.fillStyle = '#F59E0B'; // Amber Highlight for current
+                    // Draw a little marker arrow above
+                    ctx.beginPath();
+                    ctx.moveTo(x + barWidth/2, 0);
+                    ctx.lineTo(x + barWidth/2 - 3, 4);
+                    ctx.lineTo(x + barWidth/2 + 3, 4);
+                    ctx.fill();
+                } else {
+                    // Hue from 220 (Blue) to 0 (Red)
+                    const hue = 220 * normalized;
+                    ctx.fillStyle = `hsl(${hue}, 80%, 60%)`;
+                }
+                
+                // Make bars slightly wider than mathematically precise to prevent aliasing gaps
+                ctx.fillRect(x, y, Math.ceil(barWidth), barH);
+            }
+        }
 
         function createBitGroupHTML(bits, colorClass, label, tooltip, description) {
             const borderClass = colorClass.replace('text-', 'border-');
-            
-            // Generate spans for bits
             let bitSpans = bits.split('').map(bit => `<span class="mx-[1px]">${bit}</span>`).join('');
-
             return `
-                <div class="flex flex-col items-center group relative cursor-help has-tooltip" data-tooltip-title="${tooltip}" data-tooltip-desc="${description}">
+                <div class="flex flex-col items-center group relative cursor-help">
                     <div class="text-xs uppercase font-bold mb-1 ${colorClass} opacity-80">${label}</div>
-                    <div class="bit-display flex font-mono text-lg md:text-xl tracking-widest border-2 rounded px-2 py-1 bg-gray-900 text-white transition-all hover:scale-105 ${borderClass} ${colorClass}">
+                    <div class="flex font-mono text-lg md:text-xl tracking-widest border-2 rounded px-2 py-1 bg-gray-900 text-white transition-all hover:scale-105 ${borderClass} ${colorClass}">
                         ${bitSpans}
                     </div>
                     <div class="text-[10px] text-gray-500 mt-1">${bits.length} bits</div>
+                    <div class="absolute bottom-full mb-2 hidden group-hover:block w-48 bg-gray-800 text-white text-xs rounded p-2 shadow-xl z-10 pointer-events-none left-1/2 -translate-x-1/2">
+                        <div class="font-bold mb-1">${tooltip}</div>
+                        <div class="opacity-80">${description}</div>
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
+                    </div>
                 </div>
             `;
         }
@@ -259,9 +266,35 @@ layout: default
             const mantissa = binaryString.substring(signBits + expBits);
             const bias = Math.pow(2, expBits - 1) - 1;
 
+            // --- Formula Logic ---
+            const E_int = parseInt(exponent, 2);
+            const M_int = parseInt(mantissa, 2); 
+            const max_E = (1 << expBits) - 1;
+            
+            let formulaHtml = '';
+            let gapSize = 0;
+
+            if (isNaN(E_int)) {
+                 formulaHtml = '<span class="text-gray-400">Invalid</span>';
+            } else if (E_int === max_E) {
+                if (M_int !== 0) formulaHtml = '<span class="font-bold text-gray-500">NaN</span>';
+                else formulaHtml = `(-1)<sup>${sign}</sup> × Infinity`;
+            } else if (E_int === 0) {
+                if (M_int === 0) formulaHtml = `(-1)<sup>${sign}</sup> × 0`;
+                else {
+                    formulaHtml = `(-1)<sup>${sign}</sup> × 0.<span class="text-blue-600">${mantissa}</span> × 2<sup>(1 - ${bias})</sup>`;
+                    gapSize = Math.pow(2, 1 - bias - mantBits);
+                }
+            } else {
+                formulaHtml = `(-1)<sup>${sign}</sup> × 1.<span class="text-blue-600">${mantissa}</span> × 2<sup>(${E_int} - ${bias})</sup>`;
+                gapSize = Math.pow(2, E_int - bias - mantBits);
+            }
+
+            // REPLACEMENT 1: Removed 'overflow-hidden' from main div
+            // REPLACEMENT 2: Added 'rounded-t-xl' to header div
             container.innerHTML = `
-                <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-visible h-full">
-                    <div class="bg-gray-50 p-4 border-b border-gray-200 flex justify-between items-center">
+                <div class="bg-white rounded-xl shadow-lg border border-gray-200 h-full flex flex-col relative">
+                    <div class="bg-gray-50 p-4 border-b border-gray-200 flex justify-between items-center rounded-t-xl">
                         <div class="flex items-center gap-3">
                             <div class="p-2 bg-blue-100 rounded-lg text-blue-600">
                                 <i data-lucide="${iconName}" size="20"></i>
@@ -271,29 +304,54 @@ layout: default
                                 <p class="text-xs text-gray-500">${formatName} • ${totalBits}-bit</p>
                             </div>
                         </div>
-                        <div class="text-right">
-                            <span class="text-xs font-mono bg-gray-200 px-2 py-1 rounded text-gray-700">
-                                Bias: ${bias}
-                            </span>
+                        <div class="text-right hidden sm:block">
+                            <span class="text-xs font-mono bg-gray-200 px-2 py-1 rounded text-gray-700">Bias: ${bias}</span>
                         </div>
                     </div>
 
-                    <div class="p-6">
+                    <div class="p-6 flex-grow flex flex-col">
                         <div class="flex flex-wrap gap-4 justify-center sm:justify-start">
-                            ${createBitGroupHTML(sign, 'text-red-500', 'Sign', 'Sign Bit', '0 = Positive, 1 = Negative')}
-                            ${createBitGroupHTML(exponent, 'text-green-500', 'Exponent', `Exponent (${expBits} bits)`, `Determines the magnitude. Bias is ${bias}.`)}
-                            ${createBitGroupHTML(mantissa, 'text-blue-500', 'Mantissa', `Fraction (${mantBits} bits)`, 'Determines precision.')}
+                            ${createBitGroupHTML(sign, 'text-red-500', 'Sign', 'Sign Bit', '0/1')}
+                            ${createBitGroupHTML(exponent, 'text-green-500', 'Exponent', `Exponent (${expBits} bits)`, `Bias: ${bias}`)}
+                            ${createBitGroupHTML(mantissa, 'text-blue-500', 'Mantissa', `Mantissa (${mantBits} bits)`, 'Precision')}
+                        </div>
+
+                        <!-- Formula -->
+                        <div class="mt-6 mb-4 bg-gray-100 rounded-lg p-3 text-center border border-gray-200">
+                            <div class="text-xs text-gray-500 uppercase tracking-wide font-bold mb-1">Calculated Formula</div>
+                            <div class="font-mono text-sm sm:text-base break-words text-gray-800">${formulaHtml}</div>
+                        </div>
+
+                        <!-- Density Plot -->
+                        <div class="mb-4">
+                            <div class="flex justify-between items-end mb-1">
+                                <span class="text-xs font-bold text-gray-500 uppercase">Precision Density Map</span>
+                                <span class="text-[10px] text-gray-400">Log Scale</span>
+                            </div>
+                            <canvas id="canvas-${containerId}" width="400" height="40" class="w-full h-10 rounded bg-gray-50 border border-gray-100"></canvas>
+                            <div class="flex justify-between text-[10px] text-gray-400 mt-1 font-mono">
+                                <span>High Density (Small Numbers)</span>
+                                <span>Low Density (Large Numbers)</span>
+                            </div>
+                            ${gapSize > 0 ? `<div class="text-xs text-center mt-1 text-gray-500">Gap at this magnitude: <span class="font-mono text-gray-700">~${gapSize.toExponential(2)}</span></div>` : ''}
                         </div>
                         
-                        <div class="mt-6 text-sm text-gray-600 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                        <div class="mt-auto text-sm text-gray-600 bg-gray-50 p-3 rounded-lg border border-gray-100">
                             ${description}
                         </div>
                     </div>
                 </div>
             `;
+            
+            // Draw chart immediately after DOM update
+            const canvas = document.getElementById(`canvas-${containerId}`);
+            if (canvas) {
+                // Adjust for HDPI if needed, but keeping simple for now
+                drawDensityChart(canvas, expBits, mantBits, exponent, bias);
+            }
         }
 
-        // --- Main App Logic ---
+        // --- Main Logic ---
 
         const inputEl = document.getElementById('numberInput');
         const hexDisplayEl = document.getElementById('hexDisplay');
@@ -309,122 +367,44 @@ layout: default
                 bitsB16 = floatToBFloat16Binary(val);
                 hex = float32ToHex(val);
             } else {
-                // Handle NaN case explicitly if input is empty or invalid text
                 if (valueStr.trim() === '') {
-                    bits32 = "0".repeat(32);
-                    bits16 = "0".repeat(16);
-                    bitsB16 = "0".repeat(16);
-                    hex = "";
+                    bits32 = "0".repeat(32); bits16 = "0".repeat(16); bitsB16 = "0".repeat(16); hex = "";
                 } else {
-                    // It's literally NaN
                      val = NaN;
-                     bits32 = float32ToBinary(val);
-                     bits16 = floatToFloat16Binary(val);
-                     bitsB16 = floatToBFloat16Binary(val);
-                     hex = "NaN";
+                     bits32 = float32ToBinary(val); bits16 = floatToFloat16Binary(val); bitsB16 = floatToBFloat16Binary(val); hex = "NaN";
                 }
             }
-
             hexDisplayEl.textContent = hex;
 
             renderCard('card-float32', {
-                title: 'Float32',
-                formatName: 'Single Precision (IEEE 754)',
-                totalBits: 32, signBits: 1, expBits: 8, mantBits: 23,
-                binaryString: bits32,
-                iconName: 'cpu',
-                description: 'The standard floating point type in most programming languages. Good balance of range and precision.'
+                title: 'Float32', formatName: 'Single Precision (IEEE 754)', totalBits: 32, signBits: 1, expBits: 8, mantBits: 23,
+                binaryString: bits32, iconName: 'cpu', description: 'The standard floating point type in most programming languages. Good balance of range and precision.'
             });
-
             renderCard('card-float16', {
-                title: 'Float16',
-                formatName: 'Half Precision (IEEE 754)',
-                totalBits: 16, signBits: 1, expBits: 5, mantBits: 10,
-                binaryString: bits16,
-                iconName: 'binary',
-                description: 'Used in mobile GPUs and storage-constrained AI models. Small dynamic range.'
+                title: 'Float16', formatName: 'Half Precision (IEEE 754)', totalBits: 16, signBits: 1, expBits: 5, mantBits: 10,
+                binaryString: bits16, iconName: 'binary', description: 'Used in mobile GPUs and storage-constrained AI models. Small dynamic range.'
             });
-
             renderCard('card-bfloat16', {
-                title: 'BFloat16',
-                formatName: 'Brain Floating Point',
-                totalBits: 16, signBits: 1, expBits: 8, mantBits: 7,
-                binaryString: bitsB16,
-                iconName: 'calculator',
-                description: 'Truncates Float32 Mantissa but keeps 8-bit Exponent. Preserves range for ML training.'
+                title: 'BFloat16', formatName: 'Brain Floating Point', totalBits: 16, signBits: 1, expBits: 8, mantBits: 7,
+                binaryString: bitsB16, iconName: 'calculator', description: 'Truncates Float32 Mantissa but keeps 8-bit Exponent. Preserves range for ML training.'
             });
 
-            // Re-initialize icons for newly created DOM elements
             lucide.createIcons();
         }
 
-        // --- Event Listeners ---
-
-        inputEl.addEventListener('input', (e) => {
-            updateUI(e.target.value);
-        });
-
-        // Initialize Quick Buttons
-        const quickValues = [0, 1, -1, 3.14159, 1000000, 0.0000001, "NaN", "Infinity"];
+        inputEl.addEventListener('input', (e) => updateUI(e.target.value));
         
+        const quickValues = [0, 1, -1, 3.14159, 1000000, 1.2e-30, "NaN", "Infinity"];
         quickValues.forEach(val => {
             const btn = document.createElement('button');
             btn.className = "px-3 py-1 text-xs font-medium rounded-full bg-gray-100 hover:bg-gray-200 transition-colors whitespace-nowrap text-gray-700 border border-gray-200";
             btn.textContent = String(val);
-            btn.onclick = () => {
-                inputEl.value = val; // Set input value
-                updateUI(String(val)); // Trigger update
-            };
+            btn.onclick = () => { inputEl.value = val; updateUI(String(val)); };
             buttonsContainer.appendChild(btn);
         });
 
-        // Initial render
         updateUI("3.14159");
 
-    // --- Global tooltip (append to body to avoid ancestor overflow clipping) ---
-    (function(){
-        const fpvTooltip = document.createElement('div');
-        fpvTooltip.id = 'fpv-tooltip';
-        fpvTooltip.style.position = 'fixed';
-        fpvTooltip.style.zIndex = 10050;
-        fpvTooltip.className = 'w-48 bg-gray-800 text-white text-xs rounded p-2 shadow-xl pointer-events-none';
-        document.body.appendChild(fpvTooltip);
-
-        function positionTooltip(bitEl, title, desc){
-            fpvTooltip.innerHTML = `<div class="font-bold mb-1">${title}</div><div class="opacity-80">${desc}</div><div style="position:absolute;top:100%;left:50%;transform:translateX(-50%);border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #27272a;"></div>`;
-            fpvTooltip.style.display = 'block';
-            fpvTooltip.style.visibility = 'hidden';
-            const rect = bitEl.getBoundingClientRect();
-            const tw = fpvTooltip.offsetWidth;
-            const th = fpvTooltip.offsetHeight;
-            let left = rect.left + rect.width/2 - tw/2;
-            left = Math.max(8, Math.min(left, window.innerWidth - tw - 8));
-            let top = rect.top - th - 8;
-            if (top < 8) top = rect.bottom + 8;
-            fpvTooltip.style.left = left + 'px';
-            fpvTooltip.style.top = top + 'px';
-            fpvTooltip.style.visibility = 'visible';
-        }
-
-        document.addEventListener('mouseover', (e) => {
-            const bit = e.target.closest && e.target.closest('.bit-display');
-            if (!bit) return;
-            const wrapper = bit.closest && bit.closest('.has-tooltip');
-            if (!wrapper) return;
-            const title = wrapper.dataset.tooltipTitle || '';
-            const desc = wrapper.dataset.tooltipDesc || '';
-            positionTooltip(bit, title, desc);
-        });
-
-        document.addEventListener('mouseout', (e) => {
-            const from = e.target;
-            const to = e.relatedTarget;
-            const leaving = from.closest && from.closest('.has-tooltip');
-            const entering = to && to.closest && to.closest('.has-tooltip');
-            if (leaving && !entering) {
-                fpvTooltip.style.display = 'none';
-            }
-        });
-    })();
-
     </script>
+</body>
+</html>
