@@ -1,0 +1,436 @@
+---
+title: LPF
+permalink: /lpf/
+layout: null
+---
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damiano Imola - LinkedIn Post Formatter</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Custom Scrollbar for the editor */
+        textarea::-webkit-scrollbar { width: 8px; }
+        textarea::-webkit-scrollbar-track { background: transparent; }
+        textarea::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 4px; }
+        textarea::-webkit-scrollbar-thumb:hover { background-color: #94a3b8; }
+        
+        /* Animation Utilities */
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        .animate-in { animation: fadeIn 0.15s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useRef, useEffect } = React;
+
+        // --- ICON COMPONENTS (Inline for portability) ---
+        const Icon = ({ children, size = 24, className = "", ...props }) => (
+            <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width={size} 
+                height={size} 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2.5" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className={className} 
+                {...props}
+            >
+                {children}
+            </svg>
+        );
+
+        const Bold = (props) => <Icon {...props}><path d="M14 12a4 4 0 0 0 0-8H6v8" /><path d="M15 20a4 4 0 0 0 0-8H6v8Z" /></Icon>;
+        const Italic = (props) => <Icon {...props}><line x1="19" x2="10" y1="4" y2="4" /><line x1="14" x2="5" y1="20" y2="20" /><line x1="15" x2="9" y1="4" y2="20" /></Icon>;
+        const Underline = (props) => <Icon {...props}><path d="M6 4v6a6 6 0 0 0 12 0V4" /><line x1="4" x2="20" y1="20" y2="20" /></Icon>;
+        const Strikethrough = (props) => <Icon {...props}><path d="M16 4H9a3 3 0 0 0-2.83 4" /><path d="M14 12a4 4 0 0 1 0 8H6" /><line x1="4" x2="20" y1="12" y2="12" /></Icon>;
+        const Code = (props) => <Icon {...props}><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></Icon>;
+        const Smile = (props) => <Icon {...props}><circle cx="12" cy="12" r="10" /><path d="M8 14s1.5 2 4 2 4-2 4-2" /><line x1="9" x2="9.01" y1="9" y2="9" /><line x1="15" x2="15.01" y1="9" y2="9" /></Icon>;
+        const Copy = (props) => <Icon {...props}><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></Icon>;
+        const Check = (props) => <Icon {...props}><polyline points="20 6 9 17 4 12" /></Icon>;
+        const Trash2 = (props) => <Icon {...props}><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" /></Icon>;
+        const Linkedin = (props) => <Icon {...props} strokeWidth="0" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></Icon>;
+        const Globe = (props) => <Icon {...props} strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="2" x2="22" y1="12" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></Icon>;
+        const MoreHorizontal = (props) => <Icon {...props} strokeWidth="2"><circle cx="12" cy="12" r="1" /><circle cx="19" cy="12" r="1" /><circle cx="5" cy="12" r="1" /></Icon>;
+        const ThumbsUp = (props) => <Icon {...props} strokeWidth="2"><path d="M7 10v12" /><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z" /></Icon>;
+        const MessageSquare = (props) => <Icon {...props} strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></Icon>;
+        const Repeat = (props) => <Icon {...props} strokeWidth="2"><path d="m17 2 4 4-4 4" /><path d="M3 11v-1a4 4 0 0 1 4-4h14" /><path d="m7 22-4-4 4-4" /><path d="M21 13v1a4 4 0 0 1-4 4H3" /></Icon>;
+        const Send = (props) => <Icon {...props} strokeWidth="2"><line x1="22" x2="11" y1="2" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></Icon>;
+        const AlertCircle = (props) => <Icon {...props}><circle cx="12" cy="12" r="10" /><line x1="12" x2="12" y1="8" y2="12" /><line x1="12" x2="12.01" y1="16" y2="16" /></Icon>;
+        const User = (props) => <Icon {...props}><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></Icon>;
+
+
+        const UNICODE_MAPS = {
+          bold: {
+            A: "𝐀", B: "𝐁", C: "𝐂", D: "𝐃", E: "𝐄", F: "𝐅", G: "𝐆", H: "𝐇", I: "𝐈", J: "𝐉", K: "𝐊", L: "𝐋", M: "𝐌", N: "𝐍", O: "𝐎", P: "𝐏", Q: "𝐐", R: "𝐑", S: "𝐒", T: "𝐓", U: "𝐔", V: "𝐕", W: "𝐖", X: "𝐗", Y: "𝐘", Z: "𝐙",
+            a: "𝐚", b: "𝐛", c: "𝐜", d: "𝐝", e: "𝐞", f: "𝐟", g: "𝐠", h: "𝐡", i: "𝐢", j: "𝐣", k: "𝐤", l: "𝐥", m: "𝐦", n: "𝐧", o: "𝐨", p: "𝐩", q: "𝐪", r: "𝐫", s: "𝐬", t: "𝐭", u: "𝐮", v: "𝐯", w: "𝐰", x: "𝐱", y: "𝐲", z: "𝐳",
+            0: "𝟎", 1: "𝟏", 2: "𝟐", 3: "𝟑", 4: "𝟒", 5: "𝟓", 6: "𝟔", 7: "𝟕", 8: "𝟖", 9: "𝟗"
+          },
+          italic: {
+            A: "𝐴", B: "𝐵", C: "𝐶", D: "𝐷", E: "𝐸", F: "𝐹", G: "𝐺", H: "𝐻", I: "𝐼", J: "𝐽", K: "𝐾", L: "𝐿", M: "𝑀", N: "𝑁", O: "𝑂", P: "𝑃", Q: "𝑄", R: "𝑅", S: "𝑆", T: "𝑇", U: "𝑈", V: "𝑉", W: "𝑊", X: "𝑋", Y: "𝑌", Z: "𝑍",
+            a: "𝑎", b: "𝑏", c: "𝑐", d: "𝑑", e: "𝑒", f: "𝑓", g: "𝑔", h: "ℎ", i: "𝑖", j: "𝑗", k: "𝑘", l: "𝑙", m: "𝑚", n: "𝑛", o: "𝑜", p: "𝑝", q: "𝑞", r: "𝑟", s: "𝑠", t: "𝑡", u: "𝑢", v: "𝑣", w: "𝑤", x: "𝑥", y: "𝑦", z: "𝑧"
+          },
+          code: {
+            A: "𝙰", B: "𝙱", C: "𝙲", D: "𝙳", E: "𝙴", F: "𝙵", G: "𝙶", H: "𝙷", I: "𝙸", J: "𝙹", K: "𝙺", L: "𝙻", M: "𝙼", N: "𝙽", O: "𝙾", P: "𝙿", Q: "𝚀", R: "𝚁", S: "𝚂", T: "𝚃", U: "𝚄", V: "𝚅", W: "𝚆", X: "𝚇", Y: "𝚈", Z: "𝚉",
+            a: "𝚊", b: "𝚋", c: "𝚌", d: "𝚍", e: "𝚎", f: "𝚏", g: "𝚐", h: "𝚑", i: "𝚒", j: "𝚓", k: "𝚔", l: "𝚕", m: "𝚖", n: "𝚗", o: "𝚘", p: "𝚙", q: "𝚚", r: "𝚛", s: "𝚜", t: "𝚝", u: "𝚞", v: "𝚟", w: "𝚠", x: "𝚡", y: "𝚢", z: "𝚣",
+            0: "𝟶", 1: "𝟷", 2: "𝟸", 3: "𝟹", 4: "𝟺", 5: "𝟻", 6: "𝟼", 7: "𝟽", 8: "𝟾", 9: "𝟿"
+          }
+        };
+
+        const POPULAR_EMOJIS = [
+          "🚀", "💼", "🔥", "✨", "💡", "📈", "🤝", "✅", "❌", "⭐", 
+          "🎯", "💪", "🧠", "💻", "📱", "🎉", "👀", "👇", "🧵", "📍",
+          "🤖", "🧁", "🍩", "🪄", "🌈", "🦄", "🔔", "📢", "🎨", "🍕"
+        ];
+
+        const App = () => {
+          const [text, setText] = useState("Write your next viral post here...\n\nSelect text to format it!");
+          const [copied, setCopied] = useState(false);
+          const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+          const [showClearConfirm, setShowClearConfirm] = useState(false);
+          
+          const textAreaRef = useRef(null);
+          const emojiPickerContainerRef = useRef(null);
+
+          useEffect(() => {
+            const handleClickOutside = (event) => {
+              if (emojiPickerContainerRef.current && !emojiPickerContainerRef.current.contains(event.target)) {
+                setShowEmojiPicker(false);
+              }
+            };
+
+            if (showEmojiPicker) {
+              document.addEventListener('mousedown', handleClickOutside);
+            }
+            return () => {
+              document.removeEventListener('mousedown', handleClickOutside);
+            };
+          }, [showEmojiPicker]);
+
+          const applyTransformation = (type) => {
+            const textarea = textAreaRef.current;
+            if (!textarea) return;
+
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+
+            if (start === end) return;
+
+            const selectedText = text.substring(start, end);
+            let newText = "";
+
+            if (type === 'strike') {
+              newText = selectedText.split('').map(char => char + '\u0336').join('');
+            } else if (type === 'underline') {
+              newText = selectedText.split('').map(char => char + '\u0332').join('');
+            } else {
+              const map = UNICODE_MAPS[type];
+              if (map) {
+                newText = selectedText.split('').map(char => map[char] || char).join('');
+              } else {
+                newText = selectedText;
+              }
+            }
+
+            const fullText = text.substring(0, start) + newText + text.substring(end);
+            setText(fullText);
+
+            setTimeout(() => {
+              textarea.focus();
+              textarea.setSelectionRange(start, start + newText.length);
+            }, 0);
+          };
+
+          const insertEmoji = (emoji) => {
+            const textarea = textAreaRef.current;
+            if (!textarea) return;
+
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            
+            const newText = text.substring(0, start) + emoji + text.substring(end);
+            setText(newText);
+            
+            setTimeout(() => {
+              textarea.focus();
+              textarea.setSelectionRange(start + emoji.length, start + emoji.length);
+            }, 0);
+          };
+
+          const copyToClipboard = () => {
+            const textarea = textAreaRef.current;
+            textarea.select();
+            document.execCommand('copy');
+            textarea.setSelectionRange(textarea.value.length, textarea.value.length);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+          };
+
+          const requestClear = () => {
+            setShowClearConfirm(true);
+          };
+
+          const confirmClear = () => {
+            setText("");
+            setShowClearConfirm(false);
+          };
+
+          const ToolButton = ({ icon: Icon, label, onClick, active = false }) => (
+            <button
+              onClick={onClick}
+              className={`p-2 rounded-md transition-colors flex flex-col items-center justify-center gap-1 min-w-[3rem] 
+                ${active ? 'bg-blue-100 text-blue-700' : 'hover:bg-gray-100 text-gray-700'}`}
+              title={label}
+              type="button"
+            >
+              <Icon size={18} />
+              <span className="text-[10px] font-medium hidden sm:block">{label}</span>
+            </button>
+          );
+
+          return (
+            <div className="min-h-screen bg-gray-50 text-gray-900 font-sans selection:bg-blue-200">
+              
+              {/* Header */}
+              <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
+                <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between relative">
+                  
+                  {/* Left: Branding */}
+                  <div className="flex items-center gap-2">
+                    <Linkedin className="text-blue-600" size={28} />
+                    <h1 className="text-xl font-bold text-gray-800 hidden sm:block">Post Formatter</h1>
+                  </div>
+
+                  {/* Center: Social Links */}
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center gap-3">
+                     <a 
+                       href="https://www.linkedin.com/in/damianoimola/" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       className="group flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-50 text-gray-600 hover:bg-blue-50 hover:text-blue-700 transition-all border border-transparent hover:border-blue-100"
+                     >
+                        <User size={16} className="group-hover:scale-110 transition-transform" />
+                        <span className="text-sm font-semibold">My Profile</span>
+                     </a>
+                     <div className="w-1 h-1 rounded-full bg-gray-300"></div>
+                     <a 
+                       href="https://damianoimola.github.io/" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       className="group flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-50 text-gray-600 hover:bg-purple-50 hover:text-purple-700 transition-all border border-transparent hover:border-purple-100"
+                     >
+                        <Globe size={16} className="group-hover:scale-110 transition-transform" />
+                        <span className="text-sm font-semibold">Website</span>
+                     </a>
+                  </div>
+
+                  {/* Right: Actions */}
+                  <button 
+                    onClick={copyToClipboard}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all shadow-sm
+                      ${copied ? 'bg-green-600 text-white' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+                  >
+                    {copied ? <Check size={18} /> : <Copy size={18} />}
+                    {copied ? "Copied!" : "Copy Text"}
+                  </button>
+                </div>
+              </header>
+
+              <main className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                {/* LEFT COLUMN: Editor */}
+                <div className="flex flex-col gap-4">
+                  
+                  {/* Editor Container */}
+                  <div className="bg-white rounded-xl shadow-sm border border-gray-200 flex flex-col h-[600px] relative">
+                    
+                    {/* Toolbar */}
+                    <div className="p-2 border-b border-gray-100 bg-gray-50 flex flex-wrap gap-1 items-center rounded-t-xl">
+                      <ToolButton icon={Bold} label="Bold" onClick={() => applyTransformation('bold')} />
+                      <ToolButton icon={Italic} label="Italic" onClick={() => applyTransformation('italic')} />
+                      <ToolButton icon={Underline} label="Underline" onClick={() => applyTransformation('underline')} />
+                      <ToolButton icon={Strikethrough} label="Strike" onClick={() => applyTransformation('strike')} />
+                      <ToolButton icon={Code} label="Code" onClick={() => applyTransformation('code')} />
+                      
+                      <div className="w-px h-8 bg-gray-300 mx-2"></div>
+
+                      <div className="relative" ref={emojiPickerContainerRef}>
+                        <ToolButton icon={Smile} label="Emoji" onClick={() => setShowEmojiPicker(!showEmojiPicker)} active={showEmojiPicker} />
+                        {showEmojiPicker && (
+                          <div className="absolute top-full left-0 mt-2 p-2 bg-white rounded-lg shadow-xl border border-gray-200 w-72 grid grid-cols-6 gap-1 z-30 animate-in">
+                            {POPULAR_EMOJIS.map(emoji => (
+                              <button 
+                                key={emoji}
+                                onClick={() => { insertEmoji(emoji); setShowEmojiPicker(false); }}
+                                className="text-xl hover:bg-gray-100 p-2 rounded transition-colors flex items-center justify-center transform hover:scale-125 duration-150"
+                              >
+                                {emoji}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      
+                      <div className="flex-grow"></div>
+                      <button onClick={requestClear} className="p-2 text-red-500 hover:bg-red-50 rounded-md transition-colors" title="Clear All">
+                        <Trash2 size={18} />
+                      </button>
+                    </div>
+
+                    {/* Input Area */}
+                    <div className="flex-grow relative">
+                      <textarea
+                        ref={textAreaRef}
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                        placeholder="Start typing your post..."
+                        className="w-full h-full p-6 resize-none focus:outline-none text-lg leading-relaxed text-gray-800 font-normal rounded-b-xl"
+                        spellCheck="false"
+                      />
+                      <div className="absolute bottom-4 right-4 text-xs text-gray-400 pointer-events-none bg-white/80 px-2 py-1 rounded">
+                        {text.length} chars
+                      </div>
+
+                      {/* Custom Confirmation Overlay */}
+                      {showClearConfirm && (
+                        <div className="absolute inset-0 bg-white/95 z-40 flex flex-col items-center justify-center rounded-xl backdrop-blur-sm animate-in">
+                          <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 text-center max-w-sm mx-4">
+                            <div className="mx-auto w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-600">
+                              <AlertCircle size={24} />
+                            </div>
+                            <h3 className="text-lg font-bold text-gray-900 mb-2">Clear editor?</h3>
+                            <p className="text-gray-500 mb-6 text-sm">This will remove all text and formatting. This action cannot be undone.</p>
+                            <div className="flex gap-3 justify-center">
+                              <button 
+                                onClick={() => setShowClearConfirm(false)}
+                                className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg font-medium transition-colors border border-gray-200"
+                              >
+                                Cancel
+                              </button>
+                              <button 
+                                onClick={confirmClear}
+                                className="px-4 py-2 bg-red-600 text-white hover:bg-red-700 rounded-lg font-medium shadow-sm transition-colors"
+                              >
+                                Yes, Clear All
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* RIGHT COLUMN: Preview */}
+                <div className="flex flex-col gap-4">
+                  <h2 className="text-sm font-bold text-gray-500 uppercase tracking-wide">LinkedIn Feed Preview</h2>
+                  
+                  <div className="bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
+                    {/* Mock Header */}
+                    <div className="p-4 flex gap-3 border-b border-gray-100">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold text-lg">
+                        JD
+                      </div>
+                      <div className="flex-grow">
+                        <div className="flex items-center gap-1">
+                          <span className="font-bold text-sm text-gray-900">John Doe</span>
+                          <span className="text-gray-500 text-xs">• 1st</span>
+                        </div>
+                        <div className="text-xs text-gray-500">Innovation & Tech Enthusiast | 500k+ followers</div>
+                        <div className="flex items-center gap-1 text-xs text-gray-500 mt-0.5">
+                          <span>2h • </span>
+                          <Globe size={10} />
+                        </div>
+                      </div>
+                      <button className="text-gray-500 hover:bg-gray-100 p-1 rounded-full h-fit">
+                        <MoreHorizontal size={20} />
+                      </button>
+                    </div>
+
+                    {/* Content Preview */}
+                    <div className="p-4 text-sm text-gray-900 whitespace-pre-wrap leading-relaxed break-words font-sans">
+                      {text || <span className="text-gray-400 italic">Your formatted post will appear here...</span>}
+                    </div>
+
+                    {/* Mock Media Placeholder */}
+                    {text.length > 300 && (
+                       <div className="w-full h-64 bg-gray-100 flex items-center justify-center text-gray-400 border-t border-gray-100">
+                          [Attached Image/Video Content]
+                       </div>
+                    )}
+
+                    {/* Mock Stats */}
+                    <div className="px-4 py-2 border-b border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <div className="flex -space-x-1">
+                           <div className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center"><ThumbsUp size={8} className="text-white" fill="white"/></div>
+                           <div className="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center"><span className="text-[8px] text-white">❤️</span></div>
+                        </div>
+                        <span>1,245</span>
+                      </div>
+                      <div className="flex gap-2">
+                        <span>84 comments</span>
+                        <span>•</span>
+                        <span>12 reposts</span>
+                      </div>
+                    </div>
+
+                    {/* Mock Action Bar */}
+                    <div className="px-2 py-1 flex items-center justify-between">
+                      <button className="flex items-center gap-2 px-4 py-3 hover:bg-gray-100 rounded-md text-gray-600 transition-colors flex-1 justify-center">
+                        <ThumbsUp size={18} />
+                        <span className="text-sm font-semibold">Like</span>
+                      </button>
+                      <button className="flex items-center gap-2 px-4 py-3 hover:bg-gray-100 rounded-md text-gray-600 transition-colors flex-1 justify-center">
+                        <MessageSquare size={18} />
+                        <span className="text-sm font-semibold">Comment</span>
+                      </button>
+                      <button className="flex items-center gap-2 px-4 py-3 hover:bg-gray-100 rounded-md text-gray-600 transition-colors flex-1 justify-center">
+                        <Repeat size={18} />
+                        <span className="text-sm font-semibold">Repost</span>
+                      </button>
+                      <button className="flex items-center gap-2 px-4 py-3 hover:bg-gray-100 rounded-md text-gray-600 transition-colors flex-1 justify-center">
+                        <Send size={18} />
+                        <span className="text-sm font-semibold">Send</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="text-center text-xs text-gray-400 mt-2">
+                    The preview simulates how standard LinkedIn formatting (font size, spacing) renders your text.
+                  </div>
+                </div>
+
+              </main>
+            </div>
+          );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
