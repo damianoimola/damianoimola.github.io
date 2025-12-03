@@ -7,7 +7,7 @@ main:
     url: /posts/
 
   - title: "Resume"
-    url: https://www.dropbox.com/scl/fi/bzmu6p0mu87gr8aas2o52/Damiano-Imola-Resume-One-Page.pdf?rlkey=5cwx28s5zrvjshdv1ritrp1l2&st=hp3fv8rl&dl=0
+    url: /resume/
     #url: https://www.dropbox.com/scl/fi/o59ud6t7t5pyfrh7zvql3/Damiano-Imola-Resume.pdf?rlkey=untl2500lhx5hjw4hg1ojphka&dl=0
 
   - title: "Portfolio"
@@ -16,9 +16,11 @@ main:
   - title: "FPV"
     url: /fpv/
 
-  - title: "LinkedIn Post Formatter"
-    url: /lpf/
+  # - title: "LinkedIn Post Formatter"
+  #   url: /lpf/
+
   # - title: "Categories"
   #   url: /categories/
+  
   # - title: "Tags"
   #   url: /tags/

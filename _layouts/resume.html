@@ -1,0 +1,39 @@
+---
+---
+
+<!doctype html>
+{% include copyright.html %}
+<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+    <style>
+      html, body { height: 100%; margin: 0; background: #000; }
+      .resume-container { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+      .resume-container iframe, .resume-container embed, .resume-container object { width: 100%; height: 100vh; border: 0; background: #000; }
+      #resume-close { position: fixed; top: 16px; left: 16px; z-index: 99999; color: #fff; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.08); padding: 8px 12px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+      #resume-close:hover { background: rgba(255,255,255,0.04); }
+    </style>
+  </head>
+
+  <body class="layout--resume">
+    <a id="resume-close" href="{{ site.baseurl | default: '/' }}">← Back</a>
+    <div class="resume-container">
+      {{ content }}
+    </div>
+
+    <script>
+      (function(){
+        // Make embedded elements fill the viewport
+        var container = document.querySelector('.resume-container');
+        var els = container ? container.querySelectorAll('iframe,embed,object') : [];
+        for(var i=0;i<els.length;i++){ els[i].style.width = '100%'; els[i].style.height = '100vh'; els[i].style.border = '0'; }
+
+        // Close on Escape
+        document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ history.back(); } });
+      })();
+    </script>
+
+    {% include scripts.html %}
+  </body>
+</html>
