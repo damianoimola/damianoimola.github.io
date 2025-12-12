@@ -1,0 +1,35 @@
+[
+  {
+    "id": 101,
+    "company": "OpenAI",
+    "author": "Hao Hoang",
+    "title": "Post-Mortem: The GDPR Deletion Crash",
+    "category": ["Data Privacy", "Retraining"],
+    "trap": "The team fine-tuned the model on new data after deleting the old dataset for GDPR compliance.",
+    "why_trap": "<strong>Catastrophic Forgetting.</strong><br>By removing the old data and training only on the new, the model overwrote weights critical for previous logic.",
+    "solution": "<strong>Elastic Weight Consolidation (EWC).</strong><br>We implemented EWC to penalize changes to high-importance weights derived from the old tasks, mathematically preserving 'memory' without keeping the data.",
+    "hired_answer": "\"In the autopsy, we realized standard fine-tuning lobotomized the model. We now use EWC to lock in prior knowledge when the original dataset is unavailable.\""
+  },
+  {
+    "id": 102,
+    "company": "Twitter",
+    "author": "Hao Hoang",
+    "title": "Post-Mortem: The 2:00 PM Trend Blindness",
+    "category": ["Latency", "Online Learning"],
+    "trap": "The recommendation feed failed to pick up a viral 2 PM trend because the batch training ran at 4 AM.",
+    "why_trap": "<strong>The 10-Minute Horizon Failure.</strong><br>The system treated User Intent as static. The model was serving legacy predictions based on 10-hour-old weights.",
+    "solution": "<strong>Incremental Learning Pipeline.</strong><br>Shifted from nightly batch jobs to micro-batch updates every 10 minutes.",
+    "hired_answer": "\"Freshness is a performance feature. We diagnosed that our 'stable' 24-hour weights were statistically blind to intra-day distribution shifts.\""
+  },
+  {
+    "id": 103,
+    "company": "DeepMind",
+    "author": "Hao Hoang",
+    "title": "Post-Mortem: The Router Collapse",
+    "category": ["MoE", "Training Stability"],
+    "trap": "The Mixture of Experts (MoE) model training loss flatlined. 90% of experts had zero utilization.",
+    "why_trap": "<strong>Expert Starvation.</strong><br>The router converged early to a few 'hero' experts, leaving the rest of the parameters dead and unoptimized.",
+    "solution": "<strong>Auxiliary Balancing Loss.</strong><br>We added a penalty term to the loss function that explicitly discourages the router from clustering tokens to single experts.",
+    "hired_answer": "\"The autopsy revealed we were paying the VRAM cost for 500B params but getting the intelligence of 50B. We fixed the router incentives to force expert specialization.\""
+  }
+]

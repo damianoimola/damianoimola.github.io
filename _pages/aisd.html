@@ -1,0 +1,493 @@
+---
+title: AI Scenarios
+permalink: /ai-scenarios/
+layout: null
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Scenarios | Senior ML Prep</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --trap-color: #f87171;
+            --solution-color: #4ade80;
+            --border-color: #334155;
+            --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--accent); }
+        p.subtitle { color: var(--text-muted); font-size: 1.1rem; }
+
+        /* --- TYPE SELECTOR (New) --- */
+        .type-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .type-btn {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .type-btn:hover { border-color: var(--accent); color: var(--text-main); }
+        
+        .type-btn.active {
+            background: var(--accent);
+            color: var(--bg-color);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+        }
+
+        /* Filter Section */
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.03);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .dropdown-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        select {
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            min-width: 150px;
+            cursor: pointer;
+        }
+
+        select:focus { outline: 2px solid var(--accent); border-color: transparent; }
+
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .cat-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .cat-btn:hover { border-color: var(--accent); color: var(--text-main); }
+        .cat-btn.active { background: var(--accent); color: var(--bg-color); border-color: var(--accent); font-weight: 700; }
+
+        /* List */
+        .question-list { display: flex; flex-direction: column; gap: 20px; }
+        
+        /* Stats */
+        .stats { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
+
+        /* Card */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); }
+
+        .card-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .card-header-left { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+
+        .meta-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        
+        .company-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+            color: var(--accent);
+            background: rgba(56, 189, 248, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .author-tag { font-size: 0.75rem; color: var(--text-muted); font-style: italic; }
+
+        .card-title { font-size: 1.25rem; font-weight: 600; margin-right: 15px; }
+
+        .chevron {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+            fill: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .card.open .chevron { transform: rotate(180deg); fill: var(--accent); }
+
+        /* Content */
+        .card-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            border-top: 1px solid transparent;
+        }
+
+        .card.open .card-content { border-top-color: var(--border-color); }
+
+        .content-padding { padding: 25px; }
+
+        .section { margin-bottom: 25px; }
+        .section:last-child { margin-bottom: 0; }
+
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trap-title { color: var(--trap-color); }
+        .reality-title { color: #facc15; }
+        .solution-title { color: var(--solution-color); }
+        .hired-title { color: var(--accent); }
+
+        .answer-box {
+            background: rgba(56, 189, 248, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            border-radius: 0 4px 4px 0;
+            font-style: italic;
+            color: #bae6fd;
+        }
+
+        .tags { display: flex; gap: 8px; margin-top: 5px; }
+        .tag {
+            font-size: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: var(--text-muted);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Loading/Error */
+        #status-msg { text-align: center; margin: 40px; color: var(--text-muted); }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .card-title { font-size: 1.1rem; }
+            .dropdown-group { flex-direction: column; width: 100%; }
+            select { width: 100%; }
+            .type-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🎯 AI Scenarios</h1>
+        <p class="subtitle">Navigate Production Engineering and the traps of Interviewing from NVIDIA, DeepMind, OpenAI & more.</p>
+    </header>
+
+    <div class="type-selector">
+        <button class="type-btn active" onclick="switchType('traps', this)">🔥 Interview Traps</button>
+        <button class="type-btn" onclick="switchType('autopsy', this)">☠️ Production Autopsy</button>
+        </div>
+
+    <div class="controls">
+        <div class="dropdown-group">
+            <select id="authorSelect">
+                <option value="all">All Authors</option>
+            </select>
+            <select id="companySelect">
+                <option value="all">All Companies</option>
+            </select>
+        </div>
+        
+        <div class="category-tags" id="categoryContainer">
+            <button class="cat-btn active" data-cat="all">All Categories</button>
+            </div>
+    </div>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="question-list" id="questionList">
+        <div id="status-msg">Select a scenario type to begin...</div>
+    </div>
+</div>
+
+<script>
+    // --- CONFIGURATION ---
+    const scenarioTypes = {
+        traps: {
+            file: '../assets/data/interview-traps.json',
+            trapLabel: '⚠️ The Trap',
+            hiredLabel: '💼 The "Hired" Answer'
+        },
+        autopsy: {
+            file: '../assets/data/production-autopsy.json',
+            trapLabel: '💥 The Failure',
+            hiredLabel: '🏥 The Post-Mortem'
+        }
+        // You can add 'system_design': { file: 'design.json' ... } here later
+    };
+
+    // State
+    let currentTypeKey = 'traps';
+    let allScenarios = [];
+    let activeCategory = 'all';
+
+    // --- INITIALIZATION ---
+    function switchType(typeKey, btnElement) {
+        // Update Buttons UI
+        document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+        if(btnElement) btnElement.classList.add('active');
+
+        // Set State
+        currentTypeKey = typeKey;
+        activeCategory = 'all'; // Reset category filter
+        
+        // Show Loading
+        document.getElementById('questionList').innerHTML = '<div id="status-msg">Fetching scenarios...</div>';
+
+        // Fetch
+        const config = scenarioTypes[typeKey];
+        fetch(config.file)
+            .then(response => {
+                if (!response.ok) throw new Error(`Could not load ${config.file}`);
+                return response.json();
+            })
+            .then(data => {
+                allScenarios = data;
+                initializeFilters();
+                renderList();
+            })
+            .catch(err => {
+                document.getElementById('questionList').innerHTML = `
+                    <div id="status-msg" style="color:var(--trap-color)">
+                        Error loading ${config.file}.<br>
+                        <small>${err.message}</small>
+                    </div>`;
+            });
+    }
+
+    function initializeFilters() {
+        const authorSelect = document.getElementById('authorSelect');
+        const companySelect = document.getElementById('companySelect');
+        const categoryContainer = document.getElementById('categoryContainer');
+
+        // Reset UI
+        authorSelect.innerHTML = '<option value="all">All Authors</option>';
+        companySelect.innerHTML = '<option value="all">All Companies</option>';
+        categoryContainer.innerHTML = '<button class="cat-btn active" data-cat="all">All Categories</button>';
+
+        // Extract unique values
+        const authors = [...new Set(allScenarios.map(s => s.author))].sort();
+        const companies = [...new Set(allScenarios.map(s => s.company))].sort();
+        
+        // Extract top categories
+        const catCounts = {};
+        allScenarios.forEach(s => {
+            s.category.forEach(c => {
+                catCounts[c] = (catCounts[c] || 0) + 1;
+            });
+        });
+        const sortedCats = Object.keys(catCounts).sort((a,b) => catCounts[b] - catCounts[a]);
+        
+        // Populate Dropdowns
+        authors.forEach(a => {
+            const opt = document.createElement('option');
+            opt.value = a;
+            opt.textContent = a;
+            authorSelect.appendChild(opt);
+        });
+
+        companies.forEach(c => {
+            const opt = document.createElement('option');
+            opt.value = c;
+            opt.textContent = c;
+            companySelect.appendChild(opt);
+        });
+
+        // Populate Categories
+        sortedCats.slice(0, 15).forEach(c => {
+            const btn = document.createElement('button');
+            btn.className = 'cat-btn';
+            btn.dataset.cat = c;
+            btn.textContent = c;
+            categoryContainer.appendChild(btn);
+        });
+    }
+
+    function renderList() {
+        const listContainer = document.getElementById('questionList');
+        const authorFilter = document.getElementById('authorSelect').value;
+        const companyFilter = document.getElementById('companySelect').value;
+        const config = scenarioTypes[currentTypeKey];
+
+        // Filter Logic
+        const filtered = allScenarios.filter(item => {
+            const matchAuthor = authorFilter === 'all' || item.author === authorFilter;
+            const matchCompany = companyFilter === 'all' || item.company === companyFilter;
+            const matchCat = activeCategory === 'all' || item.category.includes(activeCategory);
+            return matchAuthor && matchCompany && matchCat;
+        });
+
+        // Update Stats
+        document.getElementById('stats').textContent = `Showing ${filtered.length} scenarios`;
+
+        // Render
+        listContainer.innerHTML = '';
+        if (filtered.length === 0) {
+            listContainer.innerHTML = '<div id="status-msg">No scenarios found matching filters.</div>';
+            return;
+        }
+
+        filtered.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-header-left">
+                        <div class="meta-row">
+                            <span class="company-tag">${item.company}</span>
+                            <span class="author-tag">by ${item.author}</span>
+                        </div>
+                        <div class="card-title">${item.title}</div>
+                        <div class="tags">
+                            ${item.category.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                    <svg class="chevron" viewBox="0 0 24 24">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <div class="content-padding">
+                        <div class="section">
+                            <div class="section-title trap-title">${config.trapLabel}</div>
+                            <p>${item.trap}</p>
+                        </div>
+                        <div class="section">
+                            <div class="section-title reality-title">🛑 The Reality</div>
+                            <p>${item.why_trap}</p>
+                        </div>
+                        <div class="section">
+                            <div class="section-title solution-title">✅ The Solution</div>
+                            <p>${item.solution}</p>
+                        </div>
+                        <div class="section">
+                            <div class="section-title hired-title">${config.hiredLabel}</div>
+                            <div class="answer-box">
+                                ${item.hired_answer}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            listContainer.appendChild(card);
+        });
+    }
+
+    function toggleCard(header) {
+        const card = header.parentElement;
+        const content = card.querySelector('.card-content');
+        const isOpen = card.classList.contains('open');
+
+        if (isOpen) {
+            card.classList.remove('open');
+            content.style.maxHeight = null;
+        } else {
+            card.classList.add('open');
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    }
+
+    // Event Listeners for Filters
+    document.getElementById('authorSelect').addEventListener('change', () => renderList());
+    document.getElementById('companySelect').addEventListener('change', () => renderList());
+    document.getElementById('categoryContainer').addEventListener('click', (e) => {
+        if (e.target.classList.contains('cat-btn')) {
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            activeCategory = e.target.dataset.cat;
+            renderList();
+        }
+    });
+
+    // Start App
+    switchType('traps', document.querySelector('.type-btn.active'));
+
+</script>
+
+</body>
+</html>

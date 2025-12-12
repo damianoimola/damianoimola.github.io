@@ -116,7 +116,7 @@ analytics:
 author:
   name             : "TL;DR :point_down:"
   avatar           : "/assets/images/bio-photo.jpg"
-  bio              : "An ispiring Computer Vision Engineer. Fan of Tech, food and travel."
+  bio              : "An hungry Artificial Intelligence Engineer. Fan of Tech and travel."
   location         : "Rome, Italy"
   #email            : damiano.imola@outlook.it
   links:
@@ -126,9 +126,18 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/damianoimola"
-    - label: "Linkedin"
-      icon: "fab fa-fw fa-linkedin"
+    - label: "LinkedIn"
+      icon: "fa-brands fa-linkedin"
       url: "https://www.linkedin.com/in/damianoimola/"
+    - label: "SIMD Thoughts"
+      icon: "fa-solid fa-bookmark"
+      url: "https://substack.com/@damianoimola?"
+    - label: "Floating Point Visualizer"
+      icon: "fa-solid fa-display"
+      url: "https://damianoimola.github.io/fpv/"
+    # - label: "AI Scenarios (alpha version)"
+    #   icon: "fa-solid fa-microphone"
+    #   url: "https://damianoimola.github.io/ai-scenarios/"
 
 # Site Footer
 footer:
@@ -139,6 +148,9 @@ footer:
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/damianoimola/"
+    - label: "SIMD Thoughts"
+      icon: "fa-solid fa-bookmark"
+      url: "https://substack.com/@damianoimola?"
 
 
 # Reading Files
