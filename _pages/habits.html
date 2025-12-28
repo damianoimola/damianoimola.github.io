@@ -1,0 +1,406 @@
+---
+title: Habits
+permalink: /habits/
+layout: null
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jsonstorage Habit Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #00b894; /* Mint green */
+            --bg: #f5f6fa;
+            --card-bg: #ffffff;
+            --text: #2d3436;
+            --danger: #d63031;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .header {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Config / Setup Section */
+        .config-box {
+            background: #dfe6e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none; /* Hidden by default */
+        }
+        
+        .config-box input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #b2bec3;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        /* Status Indicators */
+        .status-badge {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: #eee;
+        }
+
+        /* Inputs */
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input.habit-input {
+            flex-grow: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            outline: none;
+        }
+
+        button.add-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        button.add-btn:hover { background-color: #00a884; }
+
+        /* Habit List */
+        .habit-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .habit-card {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .habit-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #fab1a0;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        .delete-btn:hover { color: var(--danger); }
+
+        /* Chart */
+        .chart-container {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            height: 350px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .settings-btn {
+            background: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="header">
+        <h2 style="margin:0;">Tracker</h2>
+        <div style="text-align: right;">
+            <span id="statusBadge" class="status-badge">Idle</span>
+            <button class="settings-btn" onclick="toggleConfig()">⚙️ Setup</button>
+        </div>
+    </div>
+
+    <div id="configBox" class="config-box">
+        <strong>Connect Jsonstorage.net</strong>
+        <p style="font-size: 0.85rem; margin: 5px 0 10px;">
+            1. Go to <a href="https://jsonstorage.net/" target="_blank">jsonstorage.net</a>.<br>
+            2. Create a generic JSON object (e.g. <code>{}</code>) and Save.<br>
+            3. Copy the <strong>Endpoint URL</strong> provided and paste it here:
+        </p>
+        <input type="text" id="apiUrlInput" placeholder="https://api.jsonstorage.net/v1/json/..." value="https://api.jsonstorage.net/v1/json/14cf5d1c-65e4-4d93-8bfe-365d8a237c60/a50da1bd-2bbd-4a8d-82e3-85ed95ac2095?apiKey=4b4859fc-df85-4c3c-9054-64535199ab55" />
+        <button class="add-btn" style="padding: 8px 15px;" onclick="saveConfig()">Connect & Sync</button>
+    </div>
+
+    <div class="input-group">
+        <input type="text" id="habitInput" class="habit-input" placeholder="Add a new habit...">
+        <button class="add-btn" onclick="addHabit()">Add</button>
+    </div>
+
+    <ul id="habitList" class="habit-list"></ul>
+
+    <div class="chart-container">
+        <canvas id="habitChart"></canvas>
+    </div>
+</div>
+
+<script>
+    // --- Configuration ---
+    let API_URL = localStorage.getItem('js_net_url') || '';
+    let habits = [];
+    let myChart = null;
+    const todayStr = new Date().toISOString().split('T')[0];
+
+    // --- Jsonstorage.net API ---
+
+    function toggleConfig() {
+        const box = document.getElementById('configBox');
+        box.style.display = box.style.display === 'block' ? 'none' : 'block';
+        if(API_URL) document.getElementById('apiUrlInput').value = API_URL;
+    }
+
+    function saveConfig() {
+        const url = document.getElementById('apiUrlInput').value.trim();
+        if (url) {
+            localStorage.setItem('js_net_url', url);
+            API_URL = url;
+            toggleConfig();
+            fetchData();
+        }
+    }
+
+    async function fetchData() {
+        if (!API_URL) {
+            toggleConfig(); // Force open settings if no URL
+            return;
+        }
+        updateStatus('☁️ Syncing...', '#ffeaa7');
+
+        try {
+            const res = await fetch(API_URL);
+            if (!res.ok) throw new Error('Fetch failed');
+            
+            const data = await res.json();
+            // Handle case where file is empty or formatted differently
+            habits = Array.isArray(data.habits) ? data.habits : [];
+            
+            renderHabits();
+            renderChart();
+            updateStatus('✅ Synced', '#55efc4');
+        } catch (e) {
+            console.error(e);
+            updateStatus('❌ Error', '#ff7675');
+        }
+    }
+
+    async function saveData() {
+        if (!API_URL) return;
+        updateStatus('💾 Saving...', '#dfe6e9');
+
+        const payload = { habits: habits };
+
+        try {
+            await fetch(API_URL, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            updateStatus('✅ Saved', '#55efc4');
+            renderChart();
+        } catch (e) {
+            console.error(e);
+            updateStatus('❌ Save Failed', '#ff7675');
+        }
+    }
+
+    function updateStatus(msg, color) {
+        const el = document.getElementById('statusBadge');
+        el.textContent = msg;
+        el.style.backgroundColor = color;
+    }
+
+    // --- Habit Logic ---
+
+    function addHabit() {
+        const input = document.getElementById('habitInput');
+        const name = input.value.trim();
+        if (name) {
+            habits.push({ id: Date.now(), name: name, history: [] });
+            input.value = '';
+            renderHabits();
+            saveData();
+        }
+    }
+
+    function toggleHabit(id) {
+        const h = habits.find(x => x.id === id);
+        if (!h) return;
+        
+        const idx = h.history.indexOf(todayStr);
+        if (idx > -1) h.history.splice(idx, 1); // Remove today
+        else h.history.push(todayStr); // Add today
+        
+        saveData(); // Sync to cloud
+        renderChart(); // Update visuals immediately
+    }
+
+    function deleteHabit(id) {
+        if(confirm('Delete this habit permanently?')) {
+            habits = habits.filter(x => x.id !== id);
+            renderHabits();
+            saveData();
+        }
+    }
+
+    // --- Rendering ---
+
+    function renderHabits() {
+        const list = document.getElementById('habitList');
+        list.innerHTML = '';
+        
+        habits.forEach(h => {
+            const isDone = h.history.includes(todayStr);
+            list.innerHTML += `
+                <li class="habit-card">
+                    <div class="habit-left">
+                        <input type="checkbox" 
+                            ${isDone ? 'checked' : ''} 
+                            onchange="toggleHabit(${h.id})">
+                        <span style="font-size:1.1rem; margin-left:10px; ${isDone ? 'opacity:0.5; text-decoration:line-through' : ''}">
+                            ${h.name}
+                        </span>
+                    </div>
+                    <button class="delete-btn" onclick="deleteHabit(${h.id})">&times;</button>
+                </li>
+            `;
+        });
+    }
+
+    // --- Discrete Chart Logic ---
+
+    function stringToColor(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) hash = str.charCodeAt(i) + ((hash << 5) - hash);
+        const c = (hash & 0x00FFFFFF).toString(16).toUpperCase();
+        return '#' + "00000".substring(0, 6 - c.length) + c;
+    }
+
+    function renderChart() {
+        const ctx = document.getElementById('habitChart').getContext('2d');
+        const DAYS = 10; // Days to show
+        const labels = [];
+        
+        // Generate dates
+        for(let i=DAYS-1; i>=0; i--) {
+            const d = new Date(); 
+            d.setDate(d.getDate() - i);
+            labels.push(d.toISOString().split('T')[0].slice(5)); // MM-DD
+        }
+
+        const datasets = habits.map(h => {
+            const color = stringToColor(h.name);
+            // 1 if done, 0 if not
+            const data = labels.map((lbl, idx) => {
+                const d = new Date();
+                d.setDate(d.getDate() - (DAYS - 1 - idx));
+                return h.history.includes(d.toISOString().split('T')[0]) ? 1 : 0;
+            });
+
+            return {
+                label: h.name,
+                data: data,
+                borderColor: color,
+                backgroundColor: color,
+                stepped: true, // "Step" lines make it discrete (square waves)
+                borderWidth: 2,
+                pointRadius: 2,
+                pointHoverRadius: 5
+            };
+        });
+
+        if (myChart) myChart.destroy();
+
+        myChart = new Chart(ctx, {
+            type: 'line',
+            data: { labels, datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                scales: {
+                    y: { 
+                        display: false, // Hide Y axis (it's just 0 or 1)
+                        min: -0.1, 
+                        max: 1.1 
+                    } 
+                },
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+    }
+
+    // Initialize
+    fetchData();
+
+</script>
+</body>
+</html>
