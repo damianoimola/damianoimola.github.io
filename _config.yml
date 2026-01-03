@@ -129,8 +129,8 @@ author:
     - label: "LinkedIn"
       icon: "fa-brands fa-linkedin"
       url: "https://www.linkedin.com/in/damianoimola/"
-    - label: "SIMD Thoughts"
-      icon: "fa-solid fa-bookmark"
+    - label: "Turing's Toast"
+      icon: "fa-regular fa-newspaper"
       url: "https://substack.com/@damianoimola?"
     - label: "Floating Point Visualizer"
       icon: "fa-solid fa-display"
@@ -148,8 +148,8 @@ footer:
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/damianoimola/"
-    - label: "SIMD Thoughts"
-      icon: "fa-solid fa-bookmark"
+    - label: "Turing's Toast"
+      icon: "fa-regular fa-newspaper"
       url: "https://substack.com/@damianoimola?"
 
 
